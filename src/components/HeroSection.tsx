@@ -46,7 +46,6 @@ export default function HeroSection() {
       style={{
         position: 'relative',
         width: '100%',
-        height: 'calc(100vh + 100px)',
         height: 'calc(100dvh + 100px)',
         overflow: 'hidden',
         display: 'flex',

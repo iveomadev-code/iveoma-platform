@@ -113,7 +113,6 @@ function PillarItem({ pillar, index, isHovered, onHover, onLeave }: PillarItemPr
           style={{
             fontFamily: 'var(--font-heading-monumental), var(--font-heading), serif',
             textTransform: 'uppercase', // Monumental All-Caps
-            letterSpacing: '0', // Reset to 0
             fontSize: 'clamp(14px, 1.5vw, 22px)',
             fontWeight: 800,
             color: 'var(--sky-blue)', // Component Headline Role

@@ -111,7 +111,6 @@ function SearchOverlay({ isOpen, onClose }: { isOpen: boolean, onClose: () => vo
                   color: '#FFFFFF',
                   fontFamily: 'var(--font-heading-monumental), sans-serif',
                   textTransform: 'uppercase', 
-                  letterSpacing: '0', 
                   fontSize: 'clamp(32px, 6vw, 64px)',
                   fontWeight: 800,
                   textAlign: 'center',
@@ -389,7 +388,6 @@ export default function NavBar() {
                   style={{
                     fontFamily: 'var(--font-heading-monumental), var(--font-heading), serif',
                     textTransform: 'uppercase', 
-                    letterSpacing: '0', 
                     fontSize: '32px',
                     fontWeight: 800,
                     color: '#FFFFFF',

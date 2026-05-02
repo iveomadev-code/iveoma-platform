@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ChevronLeft, ChevronRight, X, Plus, SlidersHorizontal, Check } from 'lucide-react';
 
 import { stories } from '@/data/impactStories';
+import Button from './Button';
 
-const easing = [0.22, 1, 0.36, 1];
+const easing = [0.22, 1, 0.36, 1] as any;
 
 export default function ImpactStories() {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
