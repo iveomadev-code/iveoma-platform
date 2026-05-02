@@ -110,7 +110,7 @@ export default function ContactPageClient() {
         position: 'relative', 
         overflow: 'hidden' 
       }} className="section-pad hero-section-pad">
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--sp-container)', position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div className="hero-split-grid">
             <div>
               <SectionLabel text="Contact" color="var(--terracotta)" />
@@ -153,8 +153,8 @@ export default function ContactPageClient() {
       </section>
 
       {/* ─── 2. CONTACT CHANNELS — THE ARCHITECTURE ─── */}
-      <section style={{ padding: 'var(--sp-section) 0', backgroundColor: '#FFFFFF' }} className="section-pad">
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--sp-container)' }}>
+      <section style={{ backgroundColor: '#FFFFFF' }} className="section-pad">
+        <div className="container">
           <div className="contact-grid-responsive">
             
             {/* Physical Presence — Ebonyi HQ */}
@@ -226,8 +226,8 @@ export default function ContactPageClient() {
       </section>
 
       {/* ─── 3. SEAMLESS INQUIRY PORTAL ─── */}
-      <section style={{ padding: 'var(--sp-section) 0', backgroundColor: '#F0F5FA' }} className="section-pad">
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--sp-container)' }}>
+      <section style={{ backgroundColor: '#F0F5FA' }} className="section-pad">
+        <div className="container">
           <div className="inquiry-grid">
             <div>
               <SectionLabel text="Inquiry Form" color="var(--terracotta)" />
@@ -253,7 +253,7 @@ export default function ContactPageClient() {
               viewport={{ once: true }}
             >
               <form style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '32px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }} className="form-row-2col">
                   <SeamlessField label="Full Name" placeholder="Institutional Representative" />
                   <SeamlessField label="Organisation" placeholder="Institution Name" />
                 </div>
@@ -289,6 +289,26 @@ export default function ContactPageClient() {
 
       <Footer />
       <style jsx global>{`
+        .contact-grid-responsive {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 64px;
+        }
+        .inquiry-grid {
+          display: grid;
+          grid-template-columns: 1fr 1.3fr;
+          gap: 120px;
+          align-items: start;
+        }
+        @media (max-width: 1023px) {
+          .contact-grid-responsive { grid-template-columns: 1fr 1fr !important; gap: 40px !important; }
+          .inquiry-grid { grid-template-columns: 1fr !important; gap: 64px !important; }
+        }
+        @media (max-width: 639px) {
+          .contact-grid-responsive { grid-template-columns: 1fr !important; }
+          .form-row-2col { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .hero-descriptor { border-left: none !important; padding-left: 0 !important; margin-top: 32px !important; }
+        }
         .seamless-input-contact:focus + .seamless-border-contact {
           height: 2px;
           background-color: var(--terracotta);
@@ -306,6 +326,13 @@ export default function ContactPageClient() {
           width: 100%;
           outline: none;
           appearance: none;
+        }
+        @media (max-width: 1023px) {
+          .hero-descriptor { 
+            border-left: none !important; 
+            padding-left: 0 !important; 
+            margin-top: 32px !important; 
+          }
         }
       `}</style>
     </div>

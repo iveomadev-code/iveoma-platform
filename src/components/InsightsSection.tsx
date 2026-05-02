@@ -118,7 +118,7 @@ function ArticleRow({ article, index }: { article: typeof articles[0], index: nu
           width: 100px;
           flex-shrink: 0;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 639px) {
           .article-row {
             flex-direction: column;
             gap: 16px !important;
@@ -145,13 +145,10 @@ export default function InsightsSection() {
       ref={ref}
       style={{
         backgroundColor: '#FFFFFF',
-        padding: 'var(--sp-section) var(--sp-container)',
-        width: '100%',
-        boxSizing: 'border-box',
       }}
-      className="insights-section"
+      className="section-pad"
     >
-      <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+      <div className="container" style={{ maxWidth: '1000px' }}>
         
         {/* Header Block */}
         <motion.div
@@ -176,11 +173,11 @@ export default function InsightsSection() {
           <h2
             style={{
               fontFamily: 'var(--font-heading-monumental), var(--font-heading), serif',
-              textTransform: 'uppercase', // Monumental All-Caps
-              letterSpacing: '0', // Reset to 0
+              textTransform: 'uppercase',
+              letterSpacing: '0',
               fontSize: 'clamp(32px, 3.5vw, 46px)',
               fontWeight: 700,
-              color: 'var(--primary)', // Deep Authority (#0F2A44)
+              color: 'var(--primary)',
               lineHeight: 1.05,
               margin: 0,
             }}
@@ -228,19 +225,9 @@ export default function InsightsSection() {
       </div>
 
       <style jsx>{`
-        .insights-section {
-          padding: 96px 80px;
-        }
-
-        @media (max-width: 1024px) {
+        @media (max-width: 639px) {
           .insights-section {
-            padding: 72px 48px;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .insights-section {
-            padding: 48px 24px;
+            padding: 48px 0;
           }
         }
       `}</style>

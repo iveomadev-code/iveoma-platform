@@ -124,7 +124,7 @@ function TimelineItem({ year, title, sub, last = false, index = 0 }: any) {
 function StatStrip({ type = 'primary' }: { type?: 'primary' | 'secondary' }) {
   if (type === 'primary') {
     return (
-      <div style={{ 
+      <div className="stat-strip-inner" style={{ 
         backgroundColor: 'var(--midnight-navy)', 
         borderRadius: '12px', 
         padding: '40px', 
@@ -151,7 +151,7 @@ function StatStrip({ type = 'primary' }: { type?: 'primary' | 'secondary' }) {
     );
   }
   return (
-    <div style={{ 
+    <div className="stat-strip-inner" style={{ 
       backgroundColor: 'var(--midnight-navy)', 
       borderRadius: '12px', 
       padding: '40px', 
@@ -213,13 +213,13 @@ export default function EvidencePageClient() {
 
       {/* ─── Page Hero (Dark) ─── */}
       <section style={{ backgroundColor: 'var(--midnight-navy)', padding: '160px 0 40px 0' }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '36px 80px 28px 80px' }}>
+        <div className="evidence-hero-inner" style={{ maxWidth: '1400px', margin: '0 auto', padding: '36px 80px 28px 80px' }}>
           <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'flex-end' }}>
             <div>
               <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--terracotta)', textTransform: 'uppercase', letterSpacing: '0.2em', display: 'block', marginBottom: '24px' }}>
                 Impact evidence
               </span>
-              <h1 style={{ 
+              <h1 className="evidence-hero-h1" style={{ 
                 fontFamily: 'var(--font-heading-monumental)', 
                 fontSize: 'clamp(40px, 5vw, 64px)', 
                 fontWeight: 800, 
@@ -246,15 +246,15 @@ export default function EvidencePageClient() {
 
       {/* ─── Page Body (Cream/Ice) ─── */}
       <section style={{ padding: '80px 0 160px 0' }}>
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 80px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+        <div className="evidence-container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 80px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
           
           {/* Section 1 — Headline anchor strip */}
           <StatStrip type="primary" />
 
           {/* Section 2 — Infrastructure Growth */}
           <div style={{ backgroundColor: '#FFFFFF', padding: '60px', borderRadius: '12px', border: '1px solid rgba(15, 42, 68, 0.05)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '32px', marginBottom: '60px' }}>
-              <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--terracotta)', textTransform: 'uppercase', letterSpacing: '0.15em', whiteSpace: 'nowrap' }}>Infrastructure Growth</span>
+            <div className="infrastructure-header" style={{ display: 'flex', alignItems: 'center', gap: '32px', marginBottom: '60px' }}>
+              <span className="infrastructure-growth-label" style={{ fontSize: '11px', fontWeight: 800, color: 'var(--terracotta)', textTransform: 'uppercase', letterSpacing: '0.15em', whiteSpace: 'nowrap' }}>Infrastructure Growth</span>
               <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(15, 42, 68, 0.1)' }} />
             </div>
             
@@ -368,24 +368,26 @@ export default function EvidencePageClient() {
       <Footer />
 
       <style jsx>{`
-        @media (max-width: 1024px) {
+        @media (max-width: 1023px) {
+          .evidence-hero-inner { padding: var(--sp-section-md) var(--sp-container) !important; }
           .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; align-items: flex-start !important; }
           .hero-content-right { border-left: none !important; padding-left: 0 !important; border-top: 1px solid rgba(255,255,255,0.1) !important; padding-top: 32px !important; }
           .timeline-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 48px 32px !important; }
-          .timeline-connector { display: none !important; } /* Hide line when grid wraps */
+          .timeline-connector { display: none !important; }
           .education-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          div[style*="padding: 0 80px"] { padding: 0 48px !important; }
-          div[style*="gridTemplateColumns: 1.2fr 2fr"] { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .evidence-container { padding: 0 var(--sp-container) !important; }
+          .stat-strip-inner { grid-template-columns: 1fr !important; gap: 40px !important; }
         }
-        @media (max-width: 768px) {
+        @media (max-width: 639px) {
           .timeline-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
           .education-grid { grid-template-columns: 1fr !important; }
           .metrics-grid { grid-template-columns: 1fr !important; }
           .ministat-container { grid-template-columns: repeat(2, 1fr) !important; gap: 24px !important; }
-          div[style*="padding: 0 80px"] { padding: 0 24px !important; }
-          h1 { font-size: 32px !important; }
+          .evidence-hero-h1 { font-size: clamp(32px, 10vw, 48px) !important; }
+          .infrastructure-growth-label { white-space: normal !important; text-align: center; }
+          .infrastructure-header { flex-direction: column !important; gap: 24px !important; }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 374px) {
           .ministat-container { grid-template-columns: 1fr !important; }
         }
       `}</style>

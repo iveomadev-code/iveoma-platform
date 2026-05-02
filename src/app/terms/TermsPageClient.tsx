@@ -20,7 +20,7 @@ export default function TermsPageClient() {
         overflow: 'hidden' 
       }} className="section-pad hero-section-pad">
         <div style={{ position: 'absolute', inset: 0, opacity: 0.05, backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '30px 30px' }} />
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--sp-container)', position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -55,9 +55,9 @@ export default function TermsPageClient() {
       </section>
 
       {/* ─── TERMS CONTENT ─── */}
-      <section style={{ padding: '160px 0', backgroundColor: '#FFFFFF' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--sp-container)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 2.5fr', gap: '80px' }}>
+      <section style={{ backgroundColor: '#FFFFFF' }} className="section-pad">
+        <div className="container">
+          <div className="terms-grid">
             
             {/* Sidebar */}
             <aside style={{ position: 'sticky', top: '120px', height: 'fit-content' }} className="policy-sidebar">
@@ -71,7 +71,7 @@ export default function TermsPageClient() {
             </aside>
 
             {/* Main Terms */}
-            <article style={{ display: 'flex', flexDirection: 'column', gap: '80px' }}>
+            <article style={{ display: 'flex', flexDirection: 'column', gap: '80px' }} className="policy-article">
               
               <section>
                 <h2 style={{ fontSize: '32px', fontWeight: 700, color: 'var(--primary)', marginBottom: '24px' }}>1. Operational Mandate</h2>
@@ -85,7 +85,7 @@ export default function TermsPageClient() {
                 <p style={{ fontSize: '18px', lineHeight: 1.3, color: 'rgba(15, 42, 68, 0.7)', marginBottom: '32px' }}>
                   All philanthropic contributions and strategic investments made through this platform are subjected to rigorous institutional oversight.
                 </p>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }} className="policy-2col-grid">
                   <div style={{ padding: '40px', backgroundColor: 'var(--ice-blue)', borderRadius: '8px' }}>
                     <Landmark size={20} color="var(--midnight-navy)" style={{ marginBottom: '16px' }} />
                     <h4 style={{ fontSize: '16px', fontWeight: 700, color: 'var(--midnight-navy)', marginBottom: '12px' }}>Purpose-Bound Capital</h4>
@@ -120,7 +120,7 @@ export default function TermsPageClient() {
                 </p>
               </section>
 
-              <section style={{ padding: '64px', backgroundColor: 'var(--ice-blue)', borderRadius: '16px' }}>
+              <section style={{ padding: '64px', backgroundColor: 'var(--ice-blue)', borderRadius: '16px' }} className="policy-contact-box">
                 <Scale size={32} color="var(--midnight-navy)" style={{ marginBottom: '32px' }} />
                 <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--midnight-navy)', marginBottom: '16px' }}>Policy Evolution</h3>
                 <p style={{ fontSize: '16px', color: 'rgba(15, 42, 68, 0.6)', lineHeight: 1.3, margin: 0 }}>
@@ -134,6 +134,21 @@ export default function TermsPageClient() {
       </section>
 
       <Footer />
+      <style jsx global>{`
+        .terms-grid {
+          display: grid;
+          grid-template-columns: 1fr 2.5fr;
+          gap: 80px;
+        }
+        @media (max-width: 1023px) {
+          .terms-grid { grid-template-columns: 1fr !important; gap: 64px !important; }
+          .policy-sidebar { display: none !important; }
+          .policy-article { gap: 64px !important; }
+          .policy-article section h2 { font-size: 24px !important; }
+          .policy-2col-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+          .policy-contact-box { padding: 40px !important; }
+        }
+      `}</style>
     </div>
   );
 }

@@ -169,13 +169,11 @@ export default function ProgramPillars() {
     <section
       ref={ref}
       style={{
-        backgroundColor: 'var(--ice-blue)', // Ice Grey (#F4F6F9)
-        padding: 'var(--sp-section) var(--sp-container)',
-        width: '100%',
-        boxSizing: 'border-box',
+        backgroundColor: 'var(--ice-blue)',
       }}
+      className="section-pad"
     >
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <div className="container">
         <div className="pillars-grid" style={{ maxWidth: '1000px', margin: '0 auto' }}>
         {/* Header Block */}
         <motion.div
@@ -266,7 +264,7 @@ export default function ProgramPillars() {
           gap: 64px;
           align-items: flex-start;
         }
-        @media (max-width: 1024px) {
+        @media (max-width: 1023px) {
           .pillars-grid {
             grid-template-columns: 1fr;
             gap: 48px;

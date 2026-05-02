@@ -38,13 +38,12 @@ export default function StrategicAlliances() {
       ref={ref}
       style={{
         backgroundColor: '#FFFFFF',
-        padding: '120px 0',
-        width: '100%',
         overflow: 'hidden',
         borderTop: '1px solid var(--ice-blue)',
       }}
+      className="section-pad"
     >
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <div className="container">
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
           
           {/* Header Row */}
@@ -54,6 +53,7 @@ export default function StrategicAlliances() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={entranceSpring}
               style={{ flex: '0 0 40%' }}
+              className="alliances-title-col"
             >
               <div className="eyebrow" style={{ color: 'var(--terracotta)', fontWeight: 800 }}>Strategic Alliances</div>
               <h2 style={{
@@ -75,6 +75,7 @@ export default function StrategicAlliances() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ ...entranceSpring, delay: 0.2 }}
               style={{ flex: '1', display: 'flex', alignItems: 'flex-end' }}
+              className="alliances-desc-col"
             >
               <p style={{
                 fontFamily: 'var(--font-body), sans-serif',
@@ -196,8 +197,9 @@ export default function StrategicAlliances() {
           transform: translateY(-8px);
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1023px) {
           .alliances-header { flex-direction: column; gap: 32px; }
+          .alliances-title-col { flex: 0 0 100% !important; }
           .pillars-grid { grid-template-columns: 1fr; gap: 24px; }
         }
       `}</style>

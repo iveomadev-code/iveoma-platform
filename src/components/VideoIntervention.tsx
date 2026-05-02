@@ -31,11 +31,11 @@ export default function VideoIntervention() {
         zIndex: 0
       }} />
 
-      <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
+      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <div style={{ 
           maxWidth: '1000px', 
           margin: '0 auto',
-          padding: '40px 0 80px 0', // Reduced top gap
+          padding: '40px 0 80px 0',
           position: 'relative',
         }}>
           
@@ -154,6 +154,13 @@ export default function VideoIntervention() {
 
         </div>
       </div>
+      <style jsx>{`
+        @media (max-width: 1023px) {
+          .container {
+            padding: 0 var(--sp-container);
+          }
+        }
+      `}</style>
     </section>
   );
 }

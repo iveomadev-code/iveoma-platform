@@ -46,11 +46,11 @@ export default function HeroSection() {
       style={{
         position: 'relative',
         width: '100%',
-        height: 'calc(100dvh + 100px)',
+        minHeight: 'clamp(560px, 90dvh, 980px)',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
-        marginTop: '-100px', // Adjusted for the new taller NavBar
+        marginTop: 'clamp(-100px, -10vh, -64px)', // Adjusted for the NavBar height
         backgroundColor: 'var(--midnight-navy)', // Deepest Dark Scrim Base (#0F2A44)
       }}
     >
@@ -104,11 +104,20 @@ export default function HeroSection() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
-          paddingTop: '400px',
+          paddingTop: 'clamp(120px, 24dvh, 400px)',
         }}
       >
         {/* Institutional Insight Markers */}
-        <div style={{ display: 'flex', gap: '40px', marginBottom: '40px' }}>
+        <div 
+          className="hero-insights-row"
+          style={{ 
+            display: 'flex', 
+            gap: 'clamp(16px, 3vw, 40px)', 
+            flexWrap: 'wrap',
+            rowGap: '12px',
+            marginBottom: '40px' 
+          }}
+        >
           {insights.map((insight, i) => (
             <motion.div
               key={i}
@@ -131,7 +140,7 @@ export default function HeroSection() {
               
               <span style={{ 
                 fontFamily: 'var(--font-numbers), var(--font-heading), serif', 
-                fontSize: '16px', 
+                fontSize: 'clamp(13px, 2vw, 16px)', 
                 fontWeight: 800, 
                 color: 'var(--action-gold)' 
               }}>
@@ -164,7 +173,7 @@ export default function HeroSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1], delay: 0.5 }}
                   style={{
-                    fontSize: 'clamp(40px, 6vw, 80px)',
+                    fontSize: 'clamp(32px, 8vw, 80px)',
                     fontWeight: 800,
                     color: '#FFFFFF',
                     lineHeight: 1.0,
@@ -183,7 +192,7 @@ export default function HeroSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1], delay: 0.7 }}
                   style={{
-                    fontSize: 'clamp(40px, 6vw, 80px)',
+                    fontSize: 'clamp(32px, 8vw, 80px)',
                     fontWeight: 800,
                     color: '#FFFFFF',
                     lineHeight: 1.0,
@@ -201,6 +210,7 @@ export default function HeroSection() {
 
           {/* Vertical Divider (Strengthened) */}
           <div 
+            className="hero-divider"
             style={{
               width: '1.5px', // Thicker for stronger connection
               height: '160px', // Increased height
@@ -218,7 +228,7 @@ export default function HeroSection() {
               transition={{ ...standardSpring, delay: 1.3 }}
               style={{
                 fontFamily: 'var(--font-body), sans-serif',
-                fontSize: 'clamp(15px, 1.4vw, 18px)',
+                fontSize: 'clamp(15px, 3.5vw, 18px)',
                 color: 'rgba(255,255,255,0.7)',
                 maxWidth: '380px',
                 lineHeight: 1.3,
@@ -231,8 +241,8 @@ export default function HeroSection() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ ...standardSpring, delay: 1.5 }}
-              style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}
+              transition={{ ...standardSpring, delay: 1.3 }}
+              style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', width: '100%' }}
             >
               <Button 
                 label="Partner" 
@@ -260,22 +270,31 @@ export default function HeroSection() {
           padding-right: var(--sp-container);
         }
         
-        @media (max-width: 1024px) {
+        @media (max-width: 1023px) {
           .hero-grid {
             flex-direction: column !important;
             align-items: flex-start !important;
-            gap: 48px !important;
+            gap: 40px !important;
           }
           .hero-grid > div {
             flex: 0 0 100% !important;
             width: 100% !important;
           }
+          .hero-divider {
+            display: none !important;
+          }
         }
 
-        @media (max-width: 768px) {
-          .hero-container {
-            padding-left: var(--sp-container-sm);
-            padding-right: var(--sp-container-sm);
+        @media (max-width: 639px) {
+          .hero-grid {
+            gap: 32px !important;
+          }
+        }
+
+        @media (max-width: 479px) {
+          .hero-grid :global(.btn) {
+            flex: 1 1 100% !important;
+            width: 100% !important;
           }
         }
       `}</style>

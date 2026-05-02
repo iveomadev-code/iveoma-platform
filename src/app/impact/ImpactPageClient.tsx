@@ -168,7 +168,7 @@ export default function ImpactPageClient() {
           transition={{ type: 'spring', stiffness: 50, damping: 20 }}
         />
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--sp-container)', position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div className="hero-split-grid">
             <div>
               <SectionLabel text="Field Evidence" color="var(--terracotta)" />
@@ -227,12 +227,11 @@ export default function ImpactPageClient() {
 
       {/* ─── 7. COMMUNITY TRUST — LEGITIMACY (“WE ARE TRUSTED”) ─── */}
       <section style={{ 
-        padding: '160px 0', 
         backgroundColor: '#0F2A44', 
         position: 'relative', 
         overflow: 'hidden',
         color: '#FFFFFF'
-      }}>
+      }} className="section-pad">
         {/* Background Atmosphere */}
         <motion.div 
           initial={{ opacity: 0 }}
@@ -250,7 +249,7 @@ export default function ImpactPageClient() {
           }}
         />
         
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 80px', position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           
           <div className="legitimacy-header" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', marginBottom: '100px' }}>
             <motion.div 
@@ -316,13 +315,11 @@ export default function ImpactPageClient() {
       </section>
 
       {/* ─── 8. CLOSING — INSTITUTIONAL POSITIONING (“WE ENDURE”) ─── */}
-      {/* PARTNERSHIP CTA (Adopting New Asymmetric Design) */}
       <section style={{ 
-        padding: '160px 0', 
         backgroundColor: 'var(--ice-blue)', 
         position: 'relative',
         overflow: 'hidden'
-      }}>
+      }} className="section-pad">
         {/* Massive Subtle Background Target */}
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.03, 0.06, 0.03] }}
@@ -331,8 +328,10 @@ export default function ImpactPageClient() {
             position: 'absolute',
             right: '-10%',
             top: '0',
-            width: '800px',
-            height: '800px',
+            maxWidth: '800px',
+            width: '100%',
+            height: 'auto',
+            aspectRatio: '1',
             pointerEvents: 'none',
             zIndex: 1
           }}
@@ -340,30 +339,9 @@ export default function ImpactPageClient() {
           <img src="/images/target.svg" alt="" style={{ width: '100%', height: '100%', filter: 'brightness(0) opacity(0.3)' }} />
         </motion.div>
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 80px', position: 'relative', zIndex: 2 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', gap: '80px' }}>
             
-            {/* Vertical Side-Rail */}
-            <div style={{ 
-              writingMode: 'vertical-rl', 
-              transform: 'rotate(180deg)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '24px',
-              opacity: 0.6
-            }}>
-
-              <span style={{ 
-                fontFamily: 'var(--font-heading-monumental)', 
-                fontSize: '11px', 
-                fontWeight: 700, 
-                textTransform: 'uppercase', 
-                letterSpacing: '0.4em',
-                color: 'var(--midnight-navy)'
-              }}>
-                Strategic Alliances
-              </span>
-            </div>
 
             {/* Content Narrative */}
             <div style={{ flex: 1 }}>
@@ -387,7 +365,7 @@ export default function ImpactPageClient() {
                 </h2>
               </motion.div>
 
-              <div style={{ display: 'flex', gap: '64px', alignItems: 'flex-start' }}>
+              <div style={{ display: 'flex', gap: '64px', alignItems: 'flex-start' }} className="cta-split-row">
                 <motion.p 
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -428,14 +406,28 @@ export default function ImpactPageClient() {
       <Footer />
 
       <style jsx>{`
-        @media (max-width: 1024px) {
-          .hero-split { grid-template-columns: 1fr !important; }
+        @media (max-width: 1023px) {
           .legitimacy-header { grid-template-columns: 1fr !important; gap: 40px !important; }
-          .legitimacy-narrative { border-left: none !important; padding-left: 0 !important; border-top: 1px solid rgba(255,255,255,0.1) !important; padding-top: 32px !important; }
-          .legitimacy-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .legitimacy-narrative { 
+            border-left: none !important; 
+            padding-left: 0 !important; 
+            border-top: 1px solid rgba(255,255,255,0.1) !important; 
+            padding-top: 32px !important; 
+          }
+          .legitimacy-grid { 
+            grid-template-columns: 1fr 1fr !important; 
+            gap: 40px !important; 
+          }
         }
-        @media (max-width: 768px) {
-          div[style*="padding: 0 80px"] { padding: 0 24px !important; }
+        @media (max-width: 639px) {
+          .legitimacy-grid { 
+            grid-template-columns: 1fr !important; 
+            gap: 48px !important; 
+          }
+          .cta-split-row {
+            flex-direction: column !important;
+            gap: 32px !important;
+          }
         }
       `}</style>
     </div>

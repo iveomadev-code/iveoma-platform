@@ -53,12 +53,11 @@ export default function ImpactSpotlight() {
       style={{
         position: 'relative',
         backgroundColor: 'var(--primary)',
-        width: '100%',
         overflow: 'hidden',
         borderTop: '1px solid rgba(255,255,255,0.05)',
         borderBottom: '1px solid rgba(255,255,255,0.05)',
       }}
-      className="impact-spotlight-section"
+      className="section-pad"
     >
       {/* Pattern Overlay (Environmental Parallax) */}
       {/* Deep Institutional Gradient Scrim */}
@@ -87,15 +86,15 @@ export default function ImpactSpotlight() {
         }}
       />
 
-      <div style={{ position: 'relative', zIndex: 10, maxWidth: '1200px', margin: '0 auto' }}>
+      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         <div 
           className="impact-grid"
           style={{
-            display: 'flex',
-            alignItems: 'stretch',
-            gap: '0',
-            width: '100%',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '80px',
+            alignItems: 'center',
           }}
         >
           
@@ -108,9 +107,6 @@ export default function ImpactSpotlight() {
             style={{ 
               position: 'relative', 
               zIndex: 10,
-              flex: '0 0 50%',
-              paddingRight: '80px',
-              paddingBottom: '40px',
             }}
           >
             <div className="eyebrow" style={{ color: 'var(--terracotta)', fontWeight: 800 }}>Removing Barriers</div>
@@ -121,7 +117,6 @@ export default function ImpactSpotlight() {
                 fontSize: 'clamp(34px, 4vw, 52px)',
                 fontWeight: 800,
                 color: '#FFFFFF',
-                maxWidth: '520px',
                 lineHeight: 1.05,
                 textTransform: 'none',
                 letterSpacing: '-0.02em',
@@ -165,13 +160,12 @@ export default function ImpactSpotlight() {
             style={{ 
               position: 'relative', 
               zIndex: 10,
-              flex: '1',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
               textAlign: 'center',
-              minHeight: '600px',
+              minHeight: '400px',
               cursor: 'default',
             }}
           >
@@ -192,8 +186,9 @@ export default function ImpactSpotlight() {
                 left: '50%',
                 x: '-50%',
                 y: '-50%',
-                width: '600px',
-                height: '600px',
+                width: '100%',
+                maxWidth: '600px',
+                aspectRatio: '1',
                 backgroundImage: 'url("/images/target.svg")',
                 backgroundSize: 'contain',
                 backgroundPosition: 'center',
@@ -215,7 +210,7 @@ export default function ImpactSpotlight() {
                 fontSize: '12px',
                 fontWeight: 800,
                 color: 'var(--terracotta)',
-                marginBottom: '32px', // Increased gap
+                marginBottom: '32px',
                 textTransform: 'uppercase',
                 letterSpacing: '0.25em',
               }}
@@ -229,7 +224,7 @@ export default function ImpactSpotlight() {
               transition={{ ...cinematicSpring, delay: 0.6 }}
               style={{
                 fontFamily: 'var(--font-numbers), var(--font-heading), serif',
-                fontSize: 'clamp(100px, 14vw, 160px)',
+                fontSize: 'clamp(80px, 12vw, 160px)',
                 fontWeight: 800,
                 color: '#FFFFFF',
                 lineHeight: 0.9,
@@ -261,7 +256,7 @@ export default function ImpactSpotlight() {
               }}
             >
               <div style={{ width: '24px', height: '1px', backgroundColor: 'var(--terracotta)', opacity: 0.5 }} />
-              <span style={{ whiteSpace: 'nowrap' }}>Active Empowerment / Ebonyi State</span>
+              <span className="spotlight-status" style={{ whiteSpace: 'nowrap' }}>Active Empowerment / Ebonyi State</span>
               <div style={{ width: '24px', height: '1px', backgroundColor: 'var(--terracotta)', opacity: 0.5 }} />
             </motion.div>
           </motion.div>
@@ -272,26 +267,17 @@ export default function ImpactSpotlight() {
 
 
       <style jsx>{`
-        .impact-spotlight-section {
-          padding: 120px var(--sp-container);
-        }
-
-        @media (max-width: 1024px) {
-          .left-column { padding-right: 20px !important; }
-          .right-column { padding-left: 0 !important; }
-        }
-
-        @media (max-width: 768px) {
+        @media (max-width: 1023px) {
           .impact-grid {
-            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
             gap: 64px !important;
           }
-          .left-column, .right-column {
-            flex: 0 0 100% !important;
-            width: 100% !important;
-            padding: 0 !important;
-            min-height: auto !important;
-          }
+          .left-column { text-align: center; }
+          .left-column h2, .left-column p { margin-left: auto !important; margin-right: auto !important; }
+          .left-column .btn-link { justify-content: center; }
+        }
+        @media (max-width: 639px) {
+          .spotlight-status { white-space: normal !important; text-align: center; max-width: 200px; }
         }
       `}</style>
     </section>

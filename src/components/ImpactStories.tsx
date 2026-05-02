@@ -615,28 +615,26 @@ export default function ImpactStories() {
       </AnimatePresence>
 
       <style jsx>{`
-        @media (max-width: 1024px) {
-          .impact-stories-section { padding: 80px 0 100px 0 !important; }
-          .container-sp { padding: 0 48px !important; }
+        @media (max-width: 1023px) {
+          .impact-stories-section { padding: var(--sp-section-md) 0 !important; }
           .impact-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .stories-title { font-size: 56px !important; }
+          .stories-title { font-size: clamp(32px, 8vw, 56px) !important; }
           .desktop-filters, .desktop-sort { display: none !important; }
           .mobile-filter-trigger { display: flex !important; }
           .toolbar-container { width: 100% !important; justify-content: flex-end !important; }
         }
-        @media (max-width: 768px) {
-          .impact-stories-section { padding: 60px 0 80px 0 !important; }
-          .container-sp { padding: 0 24px !important; }
+        @media (max-width: 639px) {
+          .impact-stories-section { padding: var(--sp-section-sm) 0 !important; }
           .impact-grid { grid-template-columns: 1fr !important; }
           .stories-header { margin-bottom: 40px !important; gap: 24px !important; }
-          .stories-title { font-size: 42px !important; }
+          .stories-title { font-size: clamp(28px, 10vw, 42px) !important; }
           .toolbar-container { gap: 24px !important; justify-content: flex-start !important; }
           
           .panel-body { padding: 32px 24px !important; }
           .pillar-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
           .panel-meta { padding: 24px !important; }
           .panel-footer { padding: 20px 24px !important; }
-          .evidence-block { grid-template-columns: 1fr !important; gap: 24px !important; padding: 24px !important; }
+          .evidence-block { grid-template-columns: 1fr !important; gap: 24px !important; padding: 20px !important; }
         }
         .panel-scroll::-webkit-scrollbar { width: 6px; }
         .panel-scroll::-webkit-scrollbar-track { background: transparent; }

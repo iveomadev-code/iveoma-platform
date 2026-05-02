@@ -101,14 +101,14 @@ export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: '#0A1B2C', // Deepest Navy
-        padding: '120px 0 40px',
+        backgroundColor: '#0A1B2C',
+        padding: 'var(--sp-section) 0 40px',
         position: 'relative',
         overflow: 'hidden',
         width: '100%',
       }}
     >
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: 'var(--max-width)', margin: '0 auto', padding: '0 var(--sp-container)' }}>
+      <div className="container" style={{ position: 'relative', zIndex: 1, margin: '0 auto' }}>
         
         {/* Top Grid */}
         <motion.div 
@@ -117,23 +117,16 @@ export default function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr 1fr', gap: '64px', marginBottom: '80px' }}
         >
           {/* Brand Column */}
-          <motion.div variants={itemVariants}>
-            <div style={{ marginBottom: '32px' }}>
+          <motion.div variants={itemVariants} className="footer-brand-col">
+            <div className="footer-logo">
               <img src="/images/logo.svg" alt="Iveoma" style={{ maxWidth: '160px', height: 'auto' }} />
             </div>
-            <p style={{ 
-              fontSize: '15px', 
-              lineHeight: 1.7, 
-              color: 'rgba(255,255,255,0.6)', 
-              maxWidth: '260px', 
-              margin: '0 0 32px' 
-            }}>
+            <p className="footer-desc">
               Advancing Human and Community Development through institutional strategic foresight and administrative rigor.
             </p>
-            <div style={{ display: 'flex', gap: '20px' }}>
+            <div className="footer-socials">
               <SocialIcon icon={BrandIcons.Facebook} href="https://www.facebook.com/IveomaDevelopmentNetwork" />
               <SocialIcon icon={BrandIcons.TwitterX} href="https://x.com/IveomaNetwork" />
               <SocialIcon icon={BrandIcons.Instagram} href="https://www.instagram.com/iveomadevelopmentnetwork?igsh=MTM5eG9jZWdwbHZuZg==" />
@@ -142,17 +135,9 @@ export default function Footer() {
           </motion.div>
 
           {/* Nav Columns */}
-          <motion.div variants={itemVariants}>
-            <h4 style={{ 
-              fontFamily: 'var(--font-heading-monumental)',
-              fontSize: '11px', 
-              fontWeight: 800, 
-              textTransform: 'uppercase', 
-              letterSpacing: '0.2em', 
-              color: BRAND.RUST, 
-              marginBottom: '32px' 
-            }}>Our Portals</h4>
-            <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+          <motion.div variants={itemVariants} className="footer-nav-col">
+            <h4 className="footer-col-title">Our Portals</h4>
+            <nav className="footer-nav">
               <FooterLink label="Education Hub" href="/programmes#education" />
               <FooterLink label="Health Systems" href="/programmes#health" />
               <FooterLink label="Youth Empowerment" href="/programmes#youth" />
@@ -160,17 +145,9 @@ export default function Footer() {
             </nav>
           </motion.div>
 
-          <motion.div variants={itemVariants}>
-            <h4 style={{ 
-              fontFamily: 'var(--font-heading-monumental)',
-              fontSize: '11px', 
-              fontWeight: 800, 
-              textTransform: 'uppercase', 
-              letterSpacing: '0.2em', 
-              color: BRAND.RUST, 
-              marginBottom: '32px' 
-            }}>Institutional</h4>
-            <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+          <motion.div variants={itemVariants} className="footer-nav-col">
+            <h4 className="footer-col-title">Institutional</h4>
+            <nav className="footer-nav">
               <FooterLink label="About the Network" href="/about" />
               <FooterLink label="Impact Reports" href="/impact" />
               <FooterLink label="Strategic Pillars" href="/programmes" />
@@ -178,17 +155,9 @@ export default function Footer() {
             </nav>
           </motion.div>
 
-          <motion.div variants={itemVariants}>
-            <h4 style={{ 
-              fontFamily: 'var(--font-heading-monumental)',
-              fontSize: '11px', 
-              fontWeight: 800, 
-              textTransform: 'uppercase', 
-              letterSpacing: '0.2em', 
-              color: BRAND.RUST, 
-              marginBottom: '32px' 
-            }}>Action</h4>
-            <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+          <motion.div variants={itemVariants} className="footer-nav-col">
+            <h4 className="footer-col-title">Action</h4>
+            <nav className="footer-nav">
               <FooterLink label="Donate & Support" href="/funding" />
               <FooterLink label="Partner with IDN" href="/partner" />
               <FooterLink label="Volunteer Core" href="/contact" />
@@ -198,11 +167,11 @@ export default function Footer() {
         </motion.div>
 
         {/* Bottom Row */}
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} className="footer-bottom-row">
-          <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.02em' }}>
+        <div className="footer-bottom-row">
+          <div className="footer-copyright">
             © 2026 Iveoma Development Network. All administrative rights reserved.
           </div>
-          <div style={{ display: 'flex', gap: '32px' }}>
+          <div className="footer-links-container">
             <FooterLink label="Privacy Protocol" small href="/privacy" />
             <FooterLink label="Institutional Terms" small href="/terms" />
           </div>
@@ -210,15 +179,6 @@ export default function Footer() {
 
       </div>
 
-      <style jsx>{`
-        @media (max-width: 1024px) {
-          .footer-top-grid { grid-template-columns: 1fr 1fr !important; gap: 48px !important; }
-        }
-        @media (max-width: 768px) {
-          .footer-top-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
-          .footer-bottom-row { flex-direction: column; align-items: flex-start; gap: 24px; }
-        }
-      `}</style>
     </footer>
   );
 }

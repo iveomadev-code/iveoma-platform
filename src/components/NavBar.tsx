@@ -47,13 +47,13 @@ function SearchOverlay({ isOpen, onClose }: { isOpen: boolean, onClose: () => vo
           style={{
             position: 'fixed',
             inset: 0,
-            backgroundColor: 'rgba(15, 42, 68, 0.98)', // Deep Authority (#0F2A44)
+            backgroundColor: '#0F2A44', // Opaque Deep Authority (#0F2A44)
             backdropFilter: 'blur(30px)',
             zIndex: 2000,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '40px',
+            padding: 'clamp(20px, 5vw, 40px)',
           }}
         >
           {/* Close Button */}
@@ -61,8 +61,8 @@ function SearchOverlay({ isOpen, onClose }: { isOpen: boolean, onClose: () => vo
             onClick={onClose}
             style={{
               position: 'absolute',
-              top: '40px',
-              right: '40px',
+              top: 'clamp(20px, 4vw, 40px)',
+              right: 'clamp(20px, 4vw, 40px)',
               background: 'none',
               border: 'none',
               color: 'rgba(255,255,255,0.4)',
@@ -111,10 +111,10 @@ function SearchOverlay({ isOpen, onClose }: { isOpen: boolean, onClose: () => vo
                   color: '#FFFFFF',
                   fontFamily: 'var(--font-heading-monumental), sans-serif',
                   textTransform: 'uppercase', 
-                  fontSize: 'clamp(32px, 6vw, 64px)',
+                  fontSize: 'clamp(28px, 8vw, 64px)',
                   fontWeight: 800,
                   textAlign: 'center',
-                  padding: '24px 0',
+                  padding: 'clamp(16px, 4vw, 24px) 0',
                   outline: 'none',
                   letterSpacing: '-0.02em',
                 }}
@@ -145,11 +145,17 @@ export default function NavBar() {
 
   useEffect(() => {
     if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      const y = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${y}px`;
+      document.body.style.width = '100%';
     } else {
-      document.body.style.overflow = 'unset';
+      const y = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      if (y) window.scrollTo(0, parseInt(y || '0') * -1);
     }
-    return () => { document.body.style.overflow = 'unset'; };
   }, [mobileMenuOpen]);
 
   useEffect(() => {
@@ -181,10 +187,11 @@ export default function NavBar() {
       <motion.nav
         initial={{ height: 100 }}
         animate={{
-          height: scrolled ? 80 : 100,
+          height: scrolled ? 'clamp(56px, 8vh, 80px)' : 'clamp(64px, 10vh, 100px)',
           backgroundColor: scrolled ? 'rgba(15, 42, 68, 0.85)' : 'rgba(15, 42, 68, 0)',
           borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(255,255,255,0)',
           backdropFilter: scrolled ? 'blur(20px) saturate(180%)' : 'blur(0px)',
+          paddingTop: 'env(safe-area-inset-top)',
         }}
         transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
         style={{
@@ -226,7 +233,7 @@ export default function NavBar() {
             <img 
               src="/images/logo.svg" 
               alt="Iveoma" 
-              style={{ height: '72px', width: 'auto', display: 'block' }} 
+              style={{ height: 'clamp(48px, 9vw, 72px)', width: 'auto', display: 'block' }} 
             />
           </motion.div>
           
@@ -296,8 +303,8 @@ export default function NavBar() {
         </div>
 
         {/* Mobile Toggle */}
-        <div className="mobile-nav-toggle" style={{ display: 'none', alignItems: 'center', gap: '16px' }}>
-          <div className="tablet-cta" style={{ marginRight: '8px' }}>
+        <div className="mobile-nav-toggle" style={{ display: 'none', alignItems: 'center', gap: 'clamp(12px, 3vw, 24px)' }}>
+          <div className="tablet-cta">
              <Button 
               label="Donate"
               href="/funding"
@@ -309,6 +316,7 @@ export default function NavBar() {
           </div>
           <button
             onClick={() => setSearchOpen(true)}
+            className="mobile-search-btn"
             style={{ background: 'none', border: 'none', color: '#FFFFFF', cursor: 'pointer', padding: '8px' }}
           >
             <Search size={22} strokeWidth={1.5} />
@@ -322,21 +330,19 @@ export default function NavBar() {
         </div>
 
         <style jsx>{`
-          @media (max-width: 1200px) {
+          @media (max-width: 1279px) {
             .desktop-nav { gap: 32px !important; }
             .nav-link-group { gap: 24px !important; }
           }
-          @media (max-width: 1024px) {
-            .desktop-nav { gap: 24px !important; }
-            .nav-link-group { gap: 16px !important; }
-            .cta-group { padding-left: 24px !important; gap: 16px !important; }
-          }
-          @media (max-width: 991px) {
+          @media (max-width: 1023px) {
             .desktop-nav { display: none !important; }
             .mobile-nav-toggle { display: flex !important; }
           }
-          @media (max-width: 480px) {
+          @media (max-width: 639px) {
             .tablet-cta { display: none !important; }
+          }
+          @media (max-width: 374px) {
+            .mobile-search-btn { display: none !important; }
           }
         `}</style>
       </motion.nav>
@@ -354,16 +360,19 @@ export default function NavBar() {
             style={{
               position: 'fixed',
               inset: 0,
-              backgroundColor: 'rgba(15, 42, 68, 0.98)', // Deep Authority (#0F2A44)
+              backgroundColor: '#0F2A44', // Fully Opaque Deep Authority
               backdropFilter: 'blur(20px)',
               zIndex: 1000,
               display: 'flex',
               flexDirection: 'column',
-              padding: '24px var(--sp-container)',
+              padding: 'clamp(20px, 4vw, 24px) var(--sp-container)',
+              overflowY: 'auto',
+              overscrollBehavior: 'contain',
+              WebkitOverflowScrolling: 'touch',
             }}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '100px' }}>
-              <img src="/images/logo.svg" alt="Iveoma" style={{ height: '72px' }} />
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 'clamp(64px, 10vh, 100px)', paddingTop: 'env(safe-area-inset-top)' }}>
+              <img src="/images/logo.svg" alt="Iveoma" style={{ height: 'clamp(48px, 9vw, 72px)' }} />
               <button
                 onClick={() => setMobileMenuOpen(false)}
                 style={{ background: 'none', border: 'none', color: '#FFFFFF', cursor: 'pointer' }}
@@ -378,7 +387,12 @@ export default function NavBar() {
               variants={{
                 visible: { transition: { staggerChildren: 0.1 } }
               }}
-              style={{ marginTop: '80px', display: 'flex', flexDirection: 'column', gap: '40px' }}
+              style={{ 
+                marginTop: 'clamp(32px, 6vh, 80px)', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                gap: 'clamp(20px, 4vh, 40px)' 
+              }}
             >
               {navLinks.map((link) => (
                 <Link
@@ -388,11 +402,12 @@ export default function NavBar() {
                   style={{
                     fontFamily: 'var(--font-heading-monumental), var(--font-heading), serif',
                     textTransform: 'uppercase', 
-                    fontSize: '32px',
+                    fontSize: 'clamp(26px, 8vw, 36px)',
                     fontWeight: 800,
                     color: '#FFFFFF',
                     textDecoration: 'none',
                     letterSpacing: '-0.02em',
+                    lineHeight: 1.1,
                   }}
                 >
                   <motion.div

@@ -36,14 +36,13 @@ export default function FundingPageClient() {
     <div ref={containerRef} style={{ backgroundColor: '#FFFFFF', minHeight: '100vh' }}>
       <NavBar />
 
-      {/* ─── 1. HERO — INSTITUTIONAL STEWARDSHIP ─── */}
       <section style={{ 
         backgroundColor: 'var(--midnight-navy)', 
         color: '#FFFFFF', 
         position: 'relative', 
         overflow: 'hidden' 
       }} className="section-pad hero-section-pad">
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--sp-container)', position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div className="hero-split-grid">
             <div>
               <SectionLabel text="Fiscal Stewardship" color="var(--terracotta)" />
@@ -97,14 +96,14 @@ export default function FundingPageClient() {
       </section>
 
       {/* ─── 2. THE STEWARDSHIP PROSPECTUS ─── */}
-      <section style={{ padding: '160px 0', backgroundColor: '#F8FAFC' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 80px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '120px', alignItems: 'center' }}>
+      <section style={{ backgroundColor: '#F8FAFC' }} className="section-pad">
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(48px, 6vw, 120px)', alignItems: 'center' }} className="prospectus-grid">
             <div>
               <div style={{ width: '48px', height: '3px', backgroundColor: '#B8543B', marginBottom: '32px' }} />
               <h2 style={{ 
                 fontFamily: 'var(--font-heading-monumental), serif', 
-                fontSize: '42px', 
+                fontSize: 'clamp(28px, 5.5vw, 42px)', 
                 fontWeight: 700, 
                 color: 'var(--primary)', 
                 lineHeight: 1.05, 
@@ -146,13 +145,13 @@ export default function FundingPageClient() {
       </section>
 
       {/* ─── 3. FUNDING PROTOCOLS — THE BANK CARDS ─── */}
-      <section style={{ padding: '160px 0', backgroundColor: '#FFFFFF' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 80px' }}>
+      <section style={{ backgroundColor: '#FFFFFF' }} className="section-pad">
+        <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 100px' }}>
             <SectionLabel text="Funding Protocols" centered />
             <h2 style={{ 
               fontFamily: 'var(--font-heading-monumental), serif', 
-              fontSize: '48px', 
+              fontSize: 'clamp(28px, 6vw, 48px)', 
               fontWeight: 700, 
               color: 'var(--primary)', 
               lineHeight: 1.05,
@@ -185,7 +184,7 @@ export default function FundingPageClient() {
             />
           </div>
 
-          <div style={{ marginTop: '80px', padding: '48px', backgroundColor: '#F0F5FA', borderRadius: '12px', textAlign: 'center' }}>
+          <div style={{ marginTop: '80px', padding: 'clamp(24px, 4vw, 48px)', backgroundColor: '#F0F5FA', borderRadius: '12px', textAlign: 'center' }}>
             <p style={{ fontSize: '15px', color: 'rgba(15, 42, 68, 0.6)', margin: 0 }}>
               For specific project-based sponsorship or structured partnership agreements, please <a href="/partner#dialogue" className="btn-link on-light" style={{ display: 'inline-flex', padding: 0 }}>Initiate an Institutional Dialogue <ArrowRight size={14} /></a>.
             </p>
@@ -194,12 +193,12 @@ export default function FundingPageClient() {
       </section>
 
       {/* ─── 4. FINAL CTA — COLLABORATION ─── */}
-      <section style={{ padding: '160px 0', backgroundColor: 'var(--midnight-navy)', color: '#FFFFFF' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 80px', textAlign: 'center' }}>
+      <section style={{ backgroundColor: 'var(--midnight-navy)', color: '#FFFFFF' }} className="section-pad">
+        <div className="container" style={{ textAlign: 'center' }}>
            <HeartHandshake size={48} color="var(--action-gold)" style={{ marginBottom: '40px' }} />
            <h2 style={{ 
              fontFamily: 'var(--font-heading-monumental), serif', 
-             fontSize: '56px', 
+             fontSize: 'clamp(32px, 7vw, 56px)', 
              fontWeight: 700, 
              background: 'linear-gradient(to right, var(--action-gold), #FFFFFF)',
              WebkitBackgroundClip: 'text',
@@ -224,7 +223,8 @@ export default function FundingPageClient() {
       <Footer />
 
       <style jsx global>{`
-        @media (max-width: 991px) {
+        @media (max-width: 1023px) {
+          .prospectus-grid { grid-template-columns: 1fr !important; gap: 56px !important; }
           .funding-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
@@ -258,7 +258,7 @@ function AccountCard({ label, bank, accountName, accountNumber, icon, accent, is
       whileHover={{ y: -8 }}
       transition={softSpring}
       style={{ 
-        padding: '64px', 
+        padding: 'clamp(24px, 4vw, 64px)', 
         backgroundColor: '#FFFFFF', 
         borderRadius: '16px', 
         border: '1px solid rgba(15, 42, 68, 0.08)',
@@ -266,7 +266,8 @@ function AccountCard({ label, bank, accountName, accountNumber, icon, accent, is
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
-        gap: '40px'
+        gap: '40px',
+        minWidth: 0,
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -288,11 +289,13 @@ function AccountCard({ label, bank, accountName, accountNumber, icon, accent, is
         <div style={{ position: 'relative' }}>
           <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(15, 42, 68, 0.4)', marginBottom: '4px' }}>Account Number</div>
           <div style={{ 
-            fontSize: 'clamp(32px, 3.5vw, 42px)', 
+            fontSize: 'clamp(20px, 5vw, 36px)', 
             fontFamily: 'var(--font-numbers)', 
             fontWeight: 800, 
             color: '#0F2A44', 
-            letterSpacing: '0.05em' 
+            letterSpacing: '0.05em',
+            wordBreak: 'break-all',
+            lineHeight: 1.1,
           }}>
             {accountNumber}
           </div>

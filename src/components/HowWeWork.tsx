@@ -22,13 +22,12 @@ export default function HowWeWork() {
     <section
       ref={ref}
       style={{
-        backgroundColor: 'var(--ice-blue)', // Ice Grey (#F4F6F9)
-        width: '100%',
+        backgroundColor: 'var(--ice-blue)',
         overflow: 'hidden',
       }}
-      className="how-we-work-section"
+      className="section-pad"
     >
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <div className="container">
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
         
         {/* Header Block */}
@@ -81,7 +80,7 @@ export default function HowWeWork() {
             height: '1px',
             backgroundColor: 'rgba(201,169,110,0.25)',
             zIndex: 1
-          }} />
+          }} className="steps-rail" />
 
           {/* Active Process Fill (Cumulative Progress) */}
           <motion.div
@@ -97,10 +96,11 @@ export default function HowWeWork() {
               top: '0',
               left: '0',
               height: '2px',
-              backgroundColor: 'var(--primary)', // Deep Authority (#0F2A44)
+              backgroundColor: 'var(--primary)',
               zIndex: 3,
               transformOrigin: 'left'
             }}
+            className="steps-rail-fill"
           />
 
           <div className="steps-grid">
@@ -115,7 +115,6 @@ export default function HowWeWork() {
                 }}
                 className="step-item"
                 style={{
-                  // Slight vertical offset for rhythmic flow (steps 2 and 4 drop down)
                   transform: i % 2 === 1 ? 'translateY(32px)' : 'translateY(0)',
                 }}
               >
@@ -137,9 +136,10 @@ export default function HowWeWork() {
                     zIndex: 4,
                     border: '2px solid transparent'
                   }}
+                  className="step-node"
                 />
 
-                <div style={{ paddingTop: '32px' }}>
+                <div style={{ paddingTop: '32px' }} className="step-content">
                   <motion.div
                     animate={{ 
                       color: hoveredIndex === i ? 'var(--primary)' : '#C9A96E',
@@ -148,8 +148,8 @@ export default function HowWeWork() {
                     transition={hoverSpring}
                     style={{
                       fontFamily: 'var(--font-heading-monumental), var(--font-heading), serif',
-                      textTransform: 'uppercase', // Monumental All-Caps
-                      letterSpacing: '0', // Reset to 0
+                      textTransform: 'uppercase',
+                      letterSpacing: '0',
                       fontSize: '14px',
                       fontWeight: 800,
                       marginBottom: '12px',
@@ -163,11 +163,11 @@ export default function HowWeWork() {
                     transition={hoverSpring}
                     style={{
                       fontFamily: 'var(--font-heading-monumental), var(--font-heading), serif',
-                      textTransform: 'uppercase', // Monumental All-Caps
-                      letterSpacing: '0', // Reset to 0
+                      textTransform: 'uppercase',
+                      letterSpacing: '0',
                       fontSize: '22px',
                       fontWeight: 700,
-                      color: 'var(--sky-blue)', // Component Headline Role
+                      color: 'var(--sky-blue)',
                       margin: 0,
                     }}
                   >
@@ -196,10 +196,6 @@ export default function HowWeWork() {
       </div>
 
       <style jsx>{`
-        .how-we-work-section {
-          padding: var(--sp-section) var(--sp-container) 40px var(--sp-container); // Reduced bottom padding
-        }
-
         .steps-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -212,7 +208,7 @@ export default function HowWeWork() {
           cursor: default;
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1023px) {
           .steps-grid {
             grid-template-columns: repeat(2, 1fr);
             gap: 80px 48px;
@@ -220,9 +216,12 @@ export default function HowWeWork() {
           .step-item {
             transform: none !important;
           }
+          .steps-rail, .steps-rail-fill { display: none; }
+          .step-node { display: none; }
+          .step-content { padding-top: 0 !important; }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 639px) {
           .steps-grid {
             grid-template-columns: 1fr;
             gap: 64px;

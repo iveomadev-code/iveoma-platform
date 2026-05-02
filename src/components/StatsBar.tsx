@@ -84,24 +84,25 @@ export default function StatsBar() {
       </motion.div>
 
       {/* 4-column grid — with premium rhythm offsets */}
-      <motion.div
-        initial="hidden"
-        animate={inView ? 'visible' : 'hidden'}
-        variants={{
-          hidden: {},
-          visible: { transition: { staggerChildren: 0.18, delayChildren: 0.2 } },
-        }}
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          alignItems: 'center',
-          width: '100%',
-          maxWidth: '1200px',
-          margin: '0 auto',
-        }}
-      >
+        <motion.div
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.18, delayChildren: 0.2 } },
+          }}
+          className="stats-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            alignItems: 'center',
+            width: '100%',
+            maxWidth: '1200px',
+            margin: '0 auto',
+          }}
+        >
         {stats.map((stat, i) => (
-          <motion.div
+            <motion.div
             key={i}
             variants={{
               hidden: { opacity: 0, y: 24 },
@@ -111,6 +112,7 @@ export default function StatsBar() {
                 transition: entranceSpring 
               },
             }}
+            className="stat-cell"
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -118,12 +120,13 @@ export default function StatsBar() {
               textAlign: 'center',
               padding: '0 24px',
               borderRight: i < stats.length - 1
-                ? '1px solid rgba(10,34,55,0.1)' // Navy Divider
+                ? '1px solid rgba(255,255,255,0.1)' 
                 : 'none',
             }}
           >
             {/* Number */}
             <div
+              className="stat-number"
               style={{
                 fontFamily: 'var(--font-numbers), var(--font-heading), serif',
                 fontSize: 'clamp(34px, 4vw, 58px)', // Corrected size
@@ -165,6 +168,28 @@ export default function StatsBar() {
           </motion.div>
         ))}
       </motion.div>
+      <style jsx>{`
+        @media (max-width: 1023px) {
+          .stats-grid { gap: 32px !important; }
+          .stat-cell { padding: 0 16px !important; }
+          .stat-number { font-size: clamp(28px, 5vw, 44px) !important; }
+        }
+        @media (max-width: 639px) {
+          .stats-grid { 
+            grid-template-columns: 1fr !important; 
+            gap: 48px !important; 
+          }
+          .stat-cell { 
+            padding: 24px 0 !important; 
+            border-right: none !important; 
+            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+          }
+          .stat-cell:last-child {
+            border-bottom: none !important;
+          }
+          .stat-number { font-size: clamp(32px, 10vw, 48px) !important; }
+        }
+      `}</style>
     </div>
   </section>
   );

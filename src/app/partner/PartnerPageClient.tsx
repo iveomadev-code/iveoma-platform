@@ -80,7 +80,7 @@ export default function PartnerPageClient() {
         position: 'relative', 
         overflow: 'hidden' 
       }} className="section-pad hero-section-pad">
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--sp-container)', position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div className="hero-split-grid">
             <div>
               <SectionLabel text="Partnership" color="var(--terracotta)" />
@@ -134,8 +134,8 @@ export default function PartnerPageClient() {
       </section>
 
       {/* ─── 2. PARTNERSHIP TYPE CARDS ─── */}
-      <section style={{ padding: '160px 0', backgroundColor: '#F8FAFC' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 80px' }}>
+      <section style={{ backgroundColor: '#F8FAFC' }} className="section-pad">
+        <div className="container">
           <div style={{ marginBottom: '80px' }}>
             <SectionLabel text="How we work together" color="var(--terracotta)" />
             <h2 style={{ 
@@ -194,8 +194,8 @@ export default function PartnerPageClient() {
       </section>
 
       {/* ─── 3. BOOK AN INSTITUTIONAL DIALOGUE ─── */}
-      <section id="dialogue" style={{ padding: '200px 0', backgroundColor: '#F0F5FA', color: '#0F2A44' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 80px' }}>
+      <section id="dialogue" style={{ backgroundColor: '#F0F5FA', color: '#0F2A44' }} className="section-pad">
+        <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: '120px', alignItems: 'start' }} className="dialogue-grid">
             <div>
               <SectionLabel text="Start the conversation" color="var(--terracotta)" />
@@ -231,7 +231,7 @@ export default function PartnerPageClient() {
               style={{ position: 'relative' }}
             >
               <form style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }} className="form-row-2col">
                   <SeamlessField label="Full Name" placeholder="Institutional Representative" />
                   <SeamlessField label="Organisation" placeholder="Institution Name" />
                 </div>
@@ -268,10 +268,14 @@ export default function PartnerPageClient() {
       <Footer />
 
       <style jsx global>{`
-        @media (max-width: 991px) {
+        @media (max-width: 1023px) {
+          .partnership-horizontal-grid { grid-template-columns: 1fr 1fr !important; }
+          .dialogue-grid { grid-template-columns: 1fr !important; gap: 64px !important; }
+        }
+        @media (max-width: 639px) {
           .partnership-horizontal-grid { grid-template-columns: 1fr !important; }
           .partnership-card { border-right: none !important; border-bottom: 1px solid rgba(15, 42, 68, 0.1) !important; padding: 48px !important; }
-          .grid-3, .dialogue-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .form-row-2col { grid-template-columns: 1fr !important; gap: 48px !important; }
           .hero-descriptor { border-left: none !important; padding-left: 0 !important; margin-top: 32px !important; }
         }
 

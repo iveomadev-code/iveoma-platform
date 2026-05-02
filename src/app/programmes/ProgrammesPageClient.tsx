@@ -209,7 +209,7 @@ export default function ProgrammesPageClient() {
           transition={{ type: 'spring', stiffness: 50, damping: 20 }}
         />
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--sp-container)', position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div className="hero-split-grid">
             <div>
               <SectionLabel text="Operational Focus" color="var(--terracotta)" />
@@ -263,11 +263,11 @@ export default function ProgrammesPageClient() {
       <section 
         id="pillar-selection"
         style={{ 
-          padding: '150px 0', 
           backgroundColor: '#FFFFFF', 
           position: 'relative'
-        }} aria-label="Programme pillars">
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 80px' }}>
+        }} aria-label="Programme pillars"
+        className="section-pad">
+        <div className="container">
           
           <div style={{ marginBottom: '48px' }}>
             <h2 style={{ 
@@ -533,10 +533,9 @@ export default function ProgrammesPageClient() {
 
       <section style={{
         backgroundColor: 'var(--ice-blue)',
-        padding: '150px 0',
         position: 'relative',
         overflow: 'hidden'
-      }}>
+      }} className="section-pad">
         {/* Institutional Watermark Backdrop */}
         <div style={{
           position: 'absolute',
@@ -552,7 +551,7 @@ export default function ProgrammesPageClient() {
           <img src="/images/target.svg" alt="" style={{ width: '100%', height: '100%', filter: 'invert(1)' }} />
         </div>
 
-        <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 80px', position: 'relative', zIndex: 2 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ marginBottom: '70px', textAlign: 'center' }}>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <SectionLabel text="Operational Protocol" color="var(--terracotta)" />
@@ -678,11 +677,10 @@ export default function ProgrammesPageClient() {
 
       {/* PARTNERSHIP CTA (Redesigned) */}
       <section style={{
-        padding: '160px 0',
         backgroundColor: 'var(--midnight-navy)',
         position: 'relative',
         overflow: 'hidden'
-      }}>
+      }} className="section-pad">
         {/* Massive Subtle Background Target */}
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.03, 0.06, 0.03] }}
@@ -691,8 +689,10 @@ export default function ProgrammesPageClient() {
             position: 'absolute',
             right: '-10%',
             top: '0',
-            width: '800px',
-            height: '800px',
+            maxWidth: '800px',
+            width: '100%',
+            height: 'auto',
+            aspectRatio: '1',
             pointerEvents: 'none',
             zIndex: 1
           }}
@@ -700,30 +700,9 @@ export default function ProgrammesPageClient() {
           <img src="/images/target.svg" alt="" style={{ width: '100%', height: '100%', filter: 'invert(1)' }} />
         </motion.div>
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 80px', position: 'relative', zIndex: 2 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', gap: '80px' }}>
 
-            {/* Vertical Side-Rail */}
-            <div style={{
-              writingMode: 'vertical-rl',
-              transform: 'rotate(180deg)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '24px',
-              opacity: 0.4
-            }}>
-
-              <span style={{
-                fontFamily: 'var(--font-heading-monumental)',
-                fontSize: '11px',
-                fontWeight: 700,
-                textTransform: 'uppercase',
-                letterSpacing: '0.4em',
-                color: '#FFFFFF'
-              }}>
-                Strategic Alliances
-              </span>
-            </div>
 
             {/* Content Narrative */}
             <div style={{ flex: 1 }}>
@@ -747,7 +726,7 @@ export default function ProgrammesPageClient() {
                 </h2>
               </motion.div>
 
-              <div style={{ display: 'flex', gap: '64px', alignItems: 'flex-start' }}>
+              <div style={{ display: 'flex', gap: '64px', alignItems: 'flex-start' }} className="cta-split-row">
                 <motion.p
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 0.7 }}
@@ -788,25 +767,18 @@ export default function ProgrammesPageClient() {
       <Footer />
 
       <style jsx>{`
-        .container-sp { box-sizing: border-box; }
-        @media (max-width: 1400px) {
-          .protocol-row { gap: 32px !important; }
-        }
-        @media (max-width: 1150px) {
-          .protocol-row { grid-template-columns: 1fr 1fr !important; }
-        }
-        @media (max-width: 1024px) {
-          .container-sp { padding: 0 48px !important; }
+        @media (max-width: 1023px) {
           .pillar-static-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .pillar-detail-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .protocol-row { grid-template-columns: 1fr 1fr !important; gap: 40px !important; }
         }
-        @media (max-width: 768px) {
-          .container-sp { padding: 0 24px !important; }
-          .protocol-row { grid-template-columns: 1fr !important; gap: 24px !important; }
-          .hero-split { grid-template-columns: 1fr !important; gap: 32px !important; }
-          .hero-split div:nth-child(2) { display: none; } /* Hide divider */
-        }
-        @media (max-width: 640px) {
+        @media (max-width: 639px) {
           .pillar-static-grid { grid-template-columns: 1fr !important; }
+          .protocol-row { grid-template-columns: 1fr !important; gap: 32px !important; }
+          .cta-split-row {
+            flex-direction: column !important;
+            gap: 32px !important;
+          }
         }
       `}</style>
     </main>

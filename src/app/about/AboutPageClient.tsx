@@ -176,7 +176,7 @@ export default function AboutPageClient() {
           transition={{ type: 'spring', stiffness: 50, damping: 20 }}
         />
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--sp-container)', position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div className="hero-split-grid">
             <div>
               <SectionLabel text="About" color="var(--terracotta)" />
@@ -230,8 +230,8 @@ export default function AboutPageClient() {
       </section>
 
       {/* ─── 2. Philosophy (Premium Institutional System) ─── */}
-      <section style={{ padding: '160px 80px', backgroundColor: '#FFFFFF', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ maxWidth: '1180px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+      <section style={{ backgroundColor: '#FFFFFF', position: 'relative', overflow: 'hidden' }} className="section-pad">
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           
           {/* 2.1 The Triad: Vision, Mission, Goal */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '64px' }} className="philosophy-triad">
@@ -414,10 +414,10 @@ export default function AboutPageClient() {
       </section>
 
       {/* ─── 5. Leadership (Editorial Authority) ─── */}
-      <section style={{ padding: '140px 80px', backgroundColor: '#F4F6F9', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ backgroundColor: '#F4F6F9', position: 'relative', overflow: 'hidden' }} className="section-pad">
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 20% 20%, rgba(201,169,110,0.08), transparent 36%)', pointerEvents: 'none' }} />
         
-        <div style={{ maxWidth: '1180px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.div 
             initial={{ opacity: 0, y: 24 }} 
             whileInView={{ opacity: 1, y: 0 }} 
@@ -477,8 +477,8 @@ export default function AboutPageClient() {
       </AnimatePresence>
 
       {/* ─── 6. Track Record (Curated Evidence System) ─── */}
-      <section style={{ backgroundColor: '#FFFFFF', padding: '140px 80px' }} className="milestones-section">
-        <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
+      <section style={{ backgroundColor: '#FFFFFF' }} className="section-pad milestones-section">
+        <div className="container">
           
           {/* Section Header */}
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={entranceSpring}>
@@ -559,7 +559,7 @@ export default function AboutPageClient() {
                 }}
               >
                 {/* Panel Header */}
-                <div style={{ padding: '40px 80px 24px', borderBottom: '1px solid rgba(15, 42, 68, 0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                <div style={{ padding: 'clamp(24px, 4vw, 40px) var(--sp-container)', borderBottom: '1px solid rgba(15, 42, 68, 0.06)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                   <div>
                     <h3 style={{ fontFamily: 'var(--font-heading-monumental), serif', fontSize: '26px', fontWeight: 700, color: '#0F2A44', margin: 0 }}>Full Programme Timeline</h3>
                     <div style={{ fontSize: '14px', color: '#5B8BBF', marginTop: '6px' }}>2016 — Present</div>
@@ -577,7 +577,7 @@ export default function AboutPageClient() {
                 </div>
 
                 {/* Internal Scroll Area */}
-                <div style={{ flex: 1, overflowY: 'auto', padding: '48px 80px 80px' }}>
+                <div style={{ flex: 1, overflowY: 'auto', padding: 'clamp(32px, 5vw, 48px) var(--sp-container) 80px' }}>
                   <div style={{ position: 'relative', maxWidth: '900px' }}>
                     {/* Vertical Rail */}
                     <motion.div 
@@ -611,11 +611,10 @@ export default function AboutPageClient() {
 
       {/* PARTNERSHIP CTA (Adopting New Asymmetric Design) */}
       <section style={{ 
-        padding: '160px 0', 
         backgroundColor: 'var(--midnight-navy)', 
         position: 'relative',
         overflow: 'hidden'
-      }}>
+      }} className="section-pad">
         {/* Massive Subtle Background Target */}
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.03, 0.06, 0.03] }}
@@ -624,8 +623,10 @@ export default function AboutPageClient() {
             position: 'absolute',
             right: '-10%',
             top: '0',
-            width: '800px',
-            height: '800px',
+            maxWidth: '800px',
+            width: '100%',
+            height: 'auto',
+            aspectRatio: '1',
             pointerEvents: 'none',
             zIndex: 1
           }}
@@ -633,30 +634,9 @@ export default function AboutPageClient() {
           <img src="/images/target.svg" alt="" style={{ width: '100%', height: '100%', filter: 'invert(1)' }} />
         </motion.div>
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 80px', position: 'relative', zIndex: 2 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', gap: '80px' }}>
             
-            {/* Vertical Side-Rail */}
-            <div style={{ 
-              writingMode: 'vertical-rl', 
-              transform: 'rotate(180deg)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '24px',
-              opacity: 0.4
-            }}>
-
-              <span style={{ 
-                fontFamily: 'var(--font-heading-monumental)', 
-                fontSize: '11px', 
-                fontWeight: 700, 
-                textTransform: 'uppercase', 
-                letterSpacing: '0.4em',
-                color: '#FFFFFF'
-              }}>
-                Strategic Alliances
-              </span>
-            </div>
 
             {/* Content Narrative */}
             <div style={{ flex: 1 }}>
@@ -680,7 +660,7 @@ export default function AboutPageClient() {
                 </h2>
               </motion.div>
 
-              <div style={{ display: 'flex', gap: '64px', alignItems: 'flex-start' }}>
+              <div style={{ display: 'flex', gap: '64px', alignItems: 'flex-start' }} className="cta-split-row">
                 <motion.p 
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 0.7 }}
@@ -723,21 +703,20 @@ export default function AboutPageClient() {
       <style jsx>{`
         .values-mobile-view { display: none; }
         
-        @media (max-width: 1024px) {
-          section { padding: 80px 48px !important; }
-          .philosophy-triad { gap: 32px !important; }
+        @media (max-width: 1023px) {
+          .philosophy-triad { 
+            grid-template-columns: 1fr 1fr !important; 
+            gap: 40px !important; 
+          }
+          .modal-grid { grid-template-columns: 1fr !important; }
+          .modal-portrait { height: 320px !important; min-height: 0 !important; }
+          .modal-content { padding: 40px 32px !important; }
         }
         
-        @media (max-width: 768px) {
-          section { padding: 64px 24px !important; }
-          .values-desktop-view { display: none; }
-          .values-mobile-view { display: block; }
-          
+        @media (max-width: 639px) {
           .philosophy-triad { 
             grid-template-columns: 1fr !important; 
-            gap: 48px !important; 
           }
-          
           .story-grid-flagship {
             flex-direction: column !important;
             gap: 48px !important;
@@ -745,15 +724,12 @@ export default function AboutPageClient() {
           .story-left-col { width: 100% !important; }
           .story-location-label { position: static !important; margin-top: 64px !important; }
           
-          .story-container, .leadership-grid { 
+          .leadership-grid { 
             display: flex;
             flex-direction: column !important;
             gap: 48px !important;
           }
-          .leadership-profile-portrait { height: 420px !important; }
-          .modal-grid { grid-template-columns: 1fr !important; }
-          .modal-portrait { height: 320px !important; }
-          .modal-content { padding: 40px 24px !important; }
+          .leadership-profile-portrait { height: auto !important; }
           .modal-panel { width: 100vw !important; height: 100vh !important; border-radius: 0 !important; max-height: none !important; }
           .metrics-row-flagship { flex-direction: column !important; }
           .milestones-flagship-grid { 
@@ -761,7 +737,10 @@ export default function AboutPageClient() {
             gap: 24px !important;
           }
           .flagship-card-container { height: 400px !important; }
-          h1 { font-size: 48px !important; }
+          .cta-split-row {
+            flex-direction: column !important;
+            gap: 32px !important;
+          }
         }
       `}</style>
     </main>
