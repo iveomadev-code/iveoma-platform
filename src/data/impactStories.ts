@@ -1,0 +1,133 @@
+export const stories = [
+  {
+    num: 'Story 01',
+    tag: 'Education',
+    date: 'February 2025',
+    loc: 'Okposi, Ebonyi State',
+    title: 'Elevating Academic Foundations',
+    images: [
+      '/images/reading/150262745_362438228181450_4795858446682435401_n.jpg',
+      '/images/reading/150890009_362438534848086_6395988148807759798_n.jpg',
+      '/images/reading/151277228_362438301514776_5997220816357053498_n.jpg',
+      '/images/reading/163043851_386498629108743_269287638975337991_n.jpg',
+      '/images/reading/163239527_386498725775400_4016315913871494654_n.jpg'
+    ],
+    metrics: [{ n: '8', l: 'Public Schools' }, { n: '3', l: 'Facilities' }, { n: '100%', l: 'WAEC Fees' }],
+    challenge: 'Dilapidated academic environments and severe financial barriers were structurally depressing student outcomes and threatening the academic progression of indigent, high-performing students.',
+    intervention: 'Execution of a rigorous literacy and reading programme across 8 public secondary schools, paired with direct financial sponsorships for WAEC fees and the rehabilitation of physical learning spaces.',
+    outcome: 'Restored critical educational infrastructure and fostered a culture of scholastic excellence, successfully removing the financial roadblocks to tertiary education for the region\'s brightest minds.',
+    prog: 'Educational Infrastructure & Performance',
+    d: ['8', '3', '100%'],
+    dl: ['Public secondary schools', 'Facilities rehabilitated', 'WAEC fees sponsored']
+  },
+  {
+    num: 'Story 02',
+    tag: 'Technology',
+    date: 'January 2025',
+    loc: 'Agunabani, Okposi Okwu',
+    title: 'Bridging the Digital Divide',
+    images: ['/digital_skills_community.jpg'],
+    metrics: [{ n: '1', l: 'Civic Hub' }, { n: '24h', l: 'Internet' }, { n: '2h', l: 'Weekly Training' }],
+    challenge: 'Rural students faced systemic disenfranchisement in a globalized economy due to an absolute lack of computer access, leaving them unprepared for mandatory Computer-Based Testing (CBT).',
+    intervention: 'Construction and inauguration of the Sir Nwani and Lady Akanele Chuku Learning and Development Centre, fully equipped with a physical library, arts studio, and 24-hour internet connectivity.',
+    outcome: 'Transformed a rural village into a high-tech learning hub, providing free, mandatory ICT training to equip students with global digital skills and CBT readiness.',
+    prog: 'Digital Skills & Community ICT Access',
+    d: ['1', '24-Hour', '2'],
+    dl: ['High-tech civic hub', 'Internet connectivity', 'Hours mandatory weekly training']
+  },
+  {
+    num: 'Story 03',
+    tag: 'Resilience',
+    date: 'December 2024',
+    loc: 'Ebonyi State',
+    title: 'Rapid Socio-Economic Stabilization',
+    images: ['/images/stabilization/IMAGE-6472410.jpg', '/crisis_response_new.jpg'],
+    metrics: [{ n: '2,000+', l: 'Women' }, { n: '7', l: 'Hospitals' }, { n: '100%', l: 'WASH' }],
+    challenge: 'The COVID-19 pandemic lockdowns simultaneously threatened vulnerable populations with acute starvation and exposed healthcare workers to severe supply chain shortages.',
+    intervention: 'Deployment of rapid, traceable relief including socio-economic palliatives for high-risk households, critical Personal Protective Equipment (PPE) for hospitals, and solar-powered sanitation infrastructure.',
+    outcome: 'Absorbed the economic shock for thousands of vulnerable families, prevented negative coping strategies, and fortified local epidemiological defenses independent of the electrical grid.',
+    prog: 'Crisis Response & Resilience',
+    d: ['2,000+', '7', '100%'],
+    dl: ['Vulnerable women stabilized', 'Hospitals fortified', 'Grid-independent WASH facilities']
+  },
+  {
+    num: 'Story 04',
+    tag: 'Healthcare',
+    date: 'November 2024',
+    loc: 'Abuja, FCT',
+    title: 'Dr. Nkata Nwani Chuku Medical Centre',
+    images: [
+      '/images/veritas/WhatsApp Image 2026-05-01 at 09.23.33.jpeg',
+      '/images/veritas/WhatsApp Image 2026-05-01 at 09.23.35.jpeg',
+      '/images/veritas/WhatsApp Image 2026-05-01 at 09.23.36.jpeg',
+      '/images/veritas/WhatsApp Image 2026-04-28 at 14.21.21.jpeg',
+      '/images/veritas/WhatsApp Image 2026-04-28 at 14.22.06.jpeg',
+      '/images/veritas/veritas-3.jpg',
+      '/images/veritas/veritas-2.jpg',
+      '/images/veritas/veritas-1.jpg'
+    ],
+    metrics: [{ n: '1', l: 'Medical Anchor' }, { n: '4,000+', l: 'Capacity' }, { n: '100%', l: 'Equipped' }],
+    challenge: 'Healthcare access on a university campus is a critical necessity, requiring infrastructure that moves beyond temporary support to permanent medical security for thousands of students and staff.',
+    intervention: 'A landmark health intervention involving the design, construction, and donation of a fully equipped medical centre to Veritas University, named in honour of founder Dr. Nkata Nwani Chuku.',
+    outcome: 'Established a permanent medical anchor providing clinical care for the university community and surrounding FCT settlements—a legacy of care built to last for generations.',
+    quote: 'True development leaves structures behind. From donating an oxygen cylinder to a rural community clinic in Okposi, to establishing a fully equipped medical centre in Abuja, IDN\'s approach to health is both grassroots and far-reaching. This medical centre is proof that when a community invests in its people, the impact outlives the moment.',
+    prog: 'Institutional Infrastructure Development',
+    d: ['1', 'Standard', '100%'],
+    dl: ['Medical centre', 'Facility grade', 'Project completion']
+  },
+  {
+    num: 'Story 05',
+    tag: 'Peace-Building',
+    date: 'October 2024',
+    loc: 'Amaechi Okposi, Ohaozara LGA',
+    title: 'Cultural Integration & Peace-Building',
+    images: [
+      '/images/Cultural Integration & Peace-Building/469103772_1245709246521006_3992731619151202266_n (1).jpg',
+      '/images/Cultural Integration & Peace-Building/WhatsApp Image 2026-04-28 at 14.19.01 (1).jpeg',
+      '/images/Cultural Integration & Peace-Building/WhatsApp Image 2026-04-28 at 14.19.32.jpeg',
+      '/images/Cultural Integration & Peace-Building/WhatsApp-Image 2026-04-28 at 14.19.18-1.png'
+    ],
+    metrics: [{ n: '3', l: 'Communities' }, { n: '1', l: 'Clan Festival' }, { n: '100%', l: 'Traditional Endorsement' }],
+    challenge: 'The need to preserve indigenous heritage and foster social cohesion. Sustainable community development begins with genuine belonging, yet rural communities often feel "intervened upon" by outsiders rather than partnered with from within.',
+    intervention: 'Active, prominent participation alongside paramount traditional rulers in the historic Iri ji ovuru (New Yam) festival, uniting the entire Okposi clan.',
+    outcome: 'Strengthened the network\'s grassroots legitimacy by organically aligning modern developmental goals with the region\'s most revered traditional institutions.',
+    quote: 'At Iveoma Development Network, we believe that sustainable community development begins with genuine belonging. By proudly partnering with the Iri Iji (New Yam) Festival in Okposi, one of the most cherished cultural celebrations of the Ebonyi people, we demonstrated that we are not outsiders looking in, but sons and daughters of the soil committed to its growth.\n\nShowing up in our communities during their most sacred and joyful moments is how we earn trust. It is how partnerships are born not in boardrooms, but under the shade of community trees, side by side with traditional rulers, elders, and the people we serve. Culture is the heartbeat of every community, and we choose to move to its rhythm.',
+    prog: 'Community Integration & Social Capital',
+    d: ['3', '1', '100%'],
+    dl: ['Autonomous communities united', 'Historic clan festival supported', 'Traditional governance endorsement']
+  },
+  {
+    num: 'Story 06',
+    tag: 'Health Systems',
+    date: 'March 2025',
+    loc: 'Ebonyi State',
+    title: 'Strengthening Rural Health Systems Through Community-Led Models',
+    images: ['/images/sanitation/IMAGE_v96zhiv96zhiv96z.jpg', '/crisis_response_new.jpg'],
+    metrics: [{ n: '100%', l: 'Grid-Independent' }, { n: '2', l: 'Sectors Targeted' }, { n: '2020', l: 'Deployment Year' }],
+    challenge: 'During the pandemic, public facilities required robust Infection Prevention and Control (IPC) measures, but chronic power grid failures made standard motorized water pumps unreliable for continuous sanitation.',
+    intervention: 'How community health workers trained under the Iveoma health programme are redefining access to primary care in underserved Ebonyi communities.',
+    outcome: 'Provided highly sustainable, grid-independent epidemiological defense systems, ensuring that high-traffic community centers could maintain safe hygiene standards during a biological crisis.',
+    prog: 'Health Systems Strengthening (WASH)',
+    d: ['100%', '2', '2020'],
+    dl: ['Grid-independent technology', 'Sectors targeted (Schools & Churches)', 'Year of rapid deployment']
+  },
+  {
+    num: 'Story 07',
+    tag: 'Education',
+    date: 'February 2025',
+    loc: 'Excellent Hope Hospital & Maternity, Okposi',
+    title: 'Expanding Access to Education in Underserved Regions',
+    images: [
+      '/images/Cynlinder/481243192_953616333552092_5342883995966364538_n.jpg',
+      '/images/Cynlinder/480507157_953616326885426_4471389551656719052_n.jpg',
+      '/images/Cynlinder/481174399_953616346885424_6243334226804506322_n.jpg'
+    ],
+    metrics: [{ n: '1', l: 'Oxygen Cylinder' }, { n: 'Monthly', l: 'Refill' }, { n: '100%', l: 'Integration' }],
+    challenge: 'Rural community clinics often face critical shortages of life-saving medical supplies. The lack of reliable access to medical oxygen severely limits a local hospital\'s ability to respond safely to respiratory emergencies.',
+    intervention: 'A look at how targeted scholarship interventions and school infrastructure investment are reversing dropout rates among girl-children in rural Ebonyi State.',
+    outcome: 'Equipped the clinic with a reliable, continuous supply of medical oxygen, directly elevating its emergency response capabilities and ensuring a higher standard of care for the local population.',
+    prog: 'Health Systems Strengthening',
+    d: ['1', 'Monthly', '100%'],
+    dl: ['36kg Oxygen Cylinder Donated', 'Guaranteed Refill Commitment', 'Local Clinic Integration']
+  }
+];

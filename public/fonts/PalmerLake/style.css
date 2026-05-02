@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Palmer Lake';
+    src: local('Palmer Lake Script'), local('Palmer-Lake-Script'),
+        url('PalmerLakeScript-Regular.woff2') format('woff2'),
+        url('PalmerLakeScript-Regular.woff') format('woff'),
+        url('PalmerLakeScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
