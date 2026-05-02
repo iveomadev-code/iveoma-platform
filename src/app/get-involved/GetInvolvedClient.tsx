@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 import { ArrowRight, Mail, MapPin, Send } from 'lucide-react';
 import Button from '@/components/Button';
 
