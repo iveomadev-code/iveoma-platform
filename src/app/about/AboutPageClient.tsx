@@ -921,7 +921,7 @@ function MediaPlaceholder({ label }: { label: string }) {
   );
 }
 
-function LeadershipProfile({ name, title, initials, img, onClick }: { name: string, title: string, initials: string, img: string, onClick: () => void }) {
+function LeadershipProfile({ name, title, initials, img, onClick, bio, credentials }: { name: string, title: string, initials: string, img: string, onClick: () => void, bio?: string, credentials?: string }) {
   return (
     <div 
       className="leadership-profile-card"
