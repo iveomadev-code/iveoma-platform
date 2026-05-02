@@ -73,7 +73,7 @@ const pillarsData = [
     ctaTitle: "Mobilize Relief",
     ctaSub: "Join our rapid response team to support immediate community stabilization.",
     ctaLabel: "Contribute",
-    ctaHref: "/get-involved"
+    ctaHref: "/partner#dialogue"
   }
 ];
 

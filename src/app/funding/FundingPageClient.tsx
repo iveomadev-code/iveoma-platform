@@ -187,7 +187,7 @@ export default function FundingPageClient() {
 
           <div style={{ marginTop: '80px', padding: '48px', backgroundColor: '#F0F5FA', borderRadius: '12px', textAlign: 'center' }}>
             <p style={{ fontSize: '15px', color: 'rgba(15, 42, 68, 0.6)', margin: 0 }}>
-              For specific project-based sponsorship or structured partnership agreements, please <a href="/get-involved" className="btn-link on-light" style={{ display: 'inline-flex', padding: 0 }}>Initiate an Institutional Dialogue <ArrowRight size={14} /></a>.
+              For specific project-based sponsorship or structured partnership agreements, please <a href="/partner#dialogue" className="btn-link on-light" style={{ display: 'inline-flex', padding: 0 }}>Initiate an Institutional Dialogue <ArrowRight size={14} /></a>.
             </p>
           </div>
         </div>

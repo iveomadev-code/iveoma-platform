@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/funding',
     '/partner',
-    '/get-involved',
     '/privacy',
   ];
 
