@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
-const premiumEase = [0.22, 1, 0.36, 1];
+const premiumEase = [0.22, 1, 0.36, 1] as any;
 
 /* ─── Institutional Brand Tones ─── */
 const BRAND = {

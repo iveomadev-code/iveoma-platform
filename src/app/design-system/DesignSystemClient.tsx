@@ -11,7 +11,7 @@ import Footer from '@/components/Footer';
 import Button from '@/components/Button';
 
 export default function DesignSystemClient() {
-  const premiumEase = [0.22, 1, 0.36, 1];
+  const premiumEase = [0.22, 1, 0.36, 1] as any;
 
   const colors = [
     { name: 'Midnight Navy', var: '--midnight-navy', hex: '#0D3A5C', desc: 'The architectural foundation. Used for deepest backgrounds and primary headings.' },

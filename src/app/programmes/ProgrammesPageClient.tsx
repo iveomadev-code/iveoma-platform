@@ -14,7 +14,7 @@ if (typeof window !== 'undefined') {
 import Navigation from '@/components/NavBar';
 import Footer from '@/components/Footer';
 
-const premiumEase = [0.22, 1, 0.36, 1];
+const premiumEase = [0.22, 1, 0.36, 1] as any;
 const heroSpring = { type: 'spring' as const, stiffness: 60, damping: 18 };
 const entranceSpring = { type: 'spring' as const, stiffness: 80, damping: 20 };
 

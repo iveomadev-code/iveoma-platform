@@ -16,7 +16,7 @@ if (typeof window !== 'undefined') {
 /* ─── Shared Animation Config ─── */
 const heroSpring = { type: 'spring' as const, stiffness: 60, damping: 18 };
 const entranceSpring = { type: 'spring' as const, stiffness: 80, damping: 20 };
-const premiumEase = [0.22, 1, 0.36, 1];
+const premiumEase = [0.22, 1, 0.36, 1] as any;
 
 /* ─── Physics-Based Motion Configs ─── */
 const activeItemSpring = { type: 'spring' as const, stiffness: 130, damping: 22, mass: 0.9 };

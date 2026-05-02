@@ -8,7 +8,7 @@ import { ArrowRight, Mail, MapPin, Send } from 'lucide-react';
 import Button from '@/components/Button';
 
 const springConfig = { type: 'spring' as const, stiffness: 80, damping: 20 };
-const premiumEase = [0.22, 1, 0.36, 1] as const;
+const premiumEase = [0.22, 1, 0.36, 1] as any;
 
 function SectionLabel({ text, color = "#B8543B", centered = false }: { text: string, color?: string, centered?: boolean }) {
   return (

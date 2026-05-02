@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 import Button from '@/components/Button';
 import { ArrowRight, ShieldCheck, Landmark, UsersRound, Mail } from 'lucide-react';
 
-const premiumEase = [0.22, 1, 0.36, 1] as const;
+const premiumEase = [0.22, 1, 0.36, 1] as any;
 const softSpring = { type: "spring" as const, stiffness: 80, damping: 20, mass: 1 };
 
 /* ─── Shared Components ─── */

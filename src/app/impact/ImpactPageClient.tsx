@@ -11,7 +11,7 @@ import { Globe, Zap, Network, ArrowRight, ShieldCheck, Activity, GraduationCap, 
 
 /* ─── Shared Motion Specs (User Requested) ─── */
 const springConfig = { type: 'spring' as const, stiffness: 80, damping: 20 };
-const premiumEase = [0.22, 1, 0.36, 1];
+const premiumEase = [0.22, 1, 0.36, 1] as any;
 const inViewConfig = { once: true, margin: "-80px" };
 
 /* ─── Components ─── */

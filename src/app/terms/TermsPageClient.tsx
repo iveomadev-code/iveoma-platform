@@ -5,7 +5,7 @@ import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import { Landmark, Scale, FileText, AlertCircle, ChevronRight, Gavel } from 'lucide-react';
 
-const premiumEase = [0.22, 1, 0.36, 1];
+const premiumEase = [0.22, 1, 0.36, 1] as any;
 
 export default function TermsPageClient() {
   return (

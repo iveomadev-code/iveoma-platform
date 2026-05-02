@@ -8,7 +8,7 @@ import Navigation from '@/components/NavBar';
 import Footer from '@/components/Footer';
 
 /* ─── Shared Specs ─── */
-const premiumEase = [0.22, 1, 0.36, 1];
+const premiumEase = [0.22, 1, 0.36, 1] as any;
 
 /* ─── Animated Components ─── */
 

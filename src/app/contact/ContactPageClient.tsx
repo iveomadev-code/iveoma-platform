@@ -7,7 +7,7 @@ import { Mail, Phone, MapPin, ArrowRight, Users, Send } from 'lucide-react';
 import { useState } from 'react';
 import Button from '@/components/Button';
 
-const premiumEase = [0.22, 1, 0.36, 1] as const;
+const premiumEase = [0.22, 1, 0.36, 1] as any;
 
 /* ─── Brand SVG Nodes ─── */
 const Brands = {
