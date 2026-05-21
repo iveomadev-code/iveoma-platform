@@ -72,12 +72,34 @@ function SectionLabel({ text, color = "var(--terracotta)" }: { text: string, col
   );
 }
 
-function SeamlessField({ label, placeholder, type = "text", isTextarea = false }: { label: string, placeholder: string, type?: string, isTextarea?: boolean }) {
+function SeamlessField({ 
+  label, 
+  placeholder, 
+  name,
+  value,
+  onChange,
+  type = "text", 
+  isTextarea = false,
+  required = true
+}: { 
+  label: string, 
+  placeholder: string, 
+  name: string,
+  value: string,
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
+  type?: string, 
+  isTextarea?: boolean,
+  required?: boolean
+}) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', position: 'relative' }}>
       <label style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: '#7AA3BE', letterSpacing: '0.1em' }}>{label}</label>
       {isTextarea ? (
         <textarea 
+          name={name}
+          value={value}
+          onChange={onChange}
+          required={required}
           rows={4} 
           placeholder={placeholder} 
           className="seamless-input-contact"
@@ -85,6 +107,10 @@ function SeamlessField({ label, placeholder, type = "text", isTextarea = false }
         />
       ) : (
         <input 
+          name={name}
+          value={value}
+          onChange={onChange}
+          required={required}
           type={type} 
           placeholder={placeholder} 
           className="seamless-input-contact"
@@ -92,13 +118,72 @@ function SeamlessField({ label, placeholder, type = "text", isTextarea = false }
         />
       )}
       <div className="seamless-border-contact" style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '1px', backgroundColor: 'rgba(15, 42, 68, 0.1)', transition: 'all 0.4s ease' }} />
-
     </div>
   );
 }
 
 
 export default function ContactPageClient() {
+  const [formData, setFormData] = useState({
+    name: '',
+    organisation: '',
+    email: '',
+    subject: 'General Inquiry',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setStatusMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          organisation: '',
+          email: '',
+          subject: 'General Inquiry',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+        setStatusMessage(data.error || 'Failed to submit inquiry.');
+      }
+    } catch (err) {
+      console.error('Submission error:', err);
+      setSubmitStatus('error');
+      setStatusMessage('A secure connection error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div style={{ backgroundColor: '#FFFFFF', minHeight: '100vh' }}>
       <NavBar />
@@ -240,36 +325,140 @@ export default function ContactPageClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <form style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }} className="form-row-2col">
-                  <SeamlessField label="Full Name" placeholder="Institutional Representative" />
-                  <SeamlessField label="Organisation" placeholder="Institution Name" />
-                </div>
-                <SeamlessField label="Email Address" placeholder="representative@institution.org" type="email" />
-                
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', position: 'relative' }}>
-                  <label style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: '#7AA3BE', letterSpacing: '0.1em' }}>Subject</label>
-                  <select className="seamless-select-contact">
-                    <option>General Inquiry</option>
-                    <option>Archival & Media Requests</option>
-                    <option>Technical Collaboration</option>
-                    <option>Career Opportunities</option>
-                  </select>
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '1px', backgroundColor: 'rgba(15, 42, 68, 0.1)' }} />
-                </div>
-
-                <SeamlessField label="Message" placeholder="How can we assist your inquiry?" isTextarea />
-                
-                <div style={{ marginTop: '20px' }}>
+              {submitStatus === 'success' ? (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  style={{
+                    backgroundColor: '#FFFFFF',
+                    border: '1px solid rgba(184, 84, 59, 0.15)',
+                    boxShadow: '0 20px 40px rgba(15, 42, 68, 0.05)',
+                    borderRadius: '16px',
+                    padding: '48px',
+                    textAlign: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '24px'
+                  }}
+                >
+                  <div style={{
+                    width: '64px',
+                    height: '64px',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(184, 84, 59, 0.08)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <Send size={24} color="var(--terracotta)" />
+                  </div>
+                  <div>
+                    <h3 style={{
+                      fontFamily: 'var(--font-heading-monumental), serif',
+                      fontSize: '24px',
+                      fontWeight: 700,
+                      color: 'var(--primary)',
+                      marginBottom: '12px'
+                    }}>
+                      Inquiry Received
+                    </h3>
+                    <p style={{
+                      fontSize: '16px',
+                      lineHeight: 1.5,
+                      color: 'rgba(15, 42, 68, 0.6)',
+                      maxWidth: '380px',
+                      margin: 0
+                    }}>
+                      Thank you for contacting the Iveoma Development Network. Your inquiry has been securely routed and is under review. Our team will correspond within 24 to 48 hours.
+                    </p>
+                  </div>
                   <Button 
-                    label="Submit Inquiry"
-                    type="submit"
-                    variant="primary"
+                    label="Submit Another Inquiry"
+                    onClick={() => setSubmitStatus('idle')}
+                    variant="secondary"
                     context="on-light"
-                    icon={<ArrowRight size={18} />}
+                    showIcon={false}
                   />
-                </div>
-              </form>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }} className="form-row-2col">
+                    <SeamlessField 
+                      label="Full Name" 
+                      placeholder="Institutional Representative" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                    />
+                    <SeamlessField 
+                      label="Organisation" 
+                      placeholder="Institution Name" 
+                      name="organisation"
+                      value={formData.organisation}
+                      onChange={handleInputChange}
+                      required={false}
+                    />
+                  </div>
+                  <SeamlessField 
+                    label="Email Address" 
+                    placeholder="representative@institution.org" 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                  />
+                  
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', position: 'relative' }}>
+                    <label style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', color: '#7AA3BE', letterSpacing: '0.1em' }}>Subject</label>
+                    <select 
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      className="seamless-select-contact"
+                    >
+                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="Archival & Media Requests">Archival & Media Requests</option>
+                      <option value="Technical Collaboration">Technical Collaboration</option>
+                      <option value="Career Opportunities">Career Opportunities</option>
+                    </select>
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '1px', backgroundColor: 'rgba(15, 42, 68, 0.1)' }} />
+                  </div>
+
+                  <SeamlessField 
+                    label="Message" 
+                    placeholder="How can we assist your inquiry?" 
+                    isTextarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                  />
+                  
+                  {submitStatus === 'error' && (
+                    <div style={{ 
+                      padding: '16px', 
+                      backgroundColor: 'rgba(239, 68, 68, 0.05)', 
+                      border: '1px solid rgba(239, 68, 68, 0.15)', 
+                      borderRadius: '8px', 
+                      color: '#DC2626', 
+                      fontSize: '14px',
+                      lineHeight: 1.5
+                    }}>
+                      {statusMessage}
+                    </div>
+                  )}
+
+                  <div style={{ marginTop: '20px' }}>
+                    <Button 
+                      label={isSubmitting ? "Routing Inquiry..." : "Submit Inquiry"}
+                      type="submit"
+                      variant="primary"
+                      context="on-light"
+                      icon={<ArrowRight size={18} />}
+                    />
+                  </div>
+                </form>
+              )}
             </motion.div>
           </div>
         </div>
