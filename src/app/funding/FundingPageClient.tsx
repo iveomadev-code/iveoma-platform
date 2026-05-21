@@ -165,9 +165,9 @@ export default function FundingPageClient() {
             {/* Naira Account */}
             <AccountCard 
               label="Local Currency (Naira)"
-              bank="Zenith Bank PLC"
+              bank="Fidelity Bank"
               accountName="Iveoma Development Network"
-              accountNumber="1016834522"
+              accountNumber="5600719672"
               icon={<Landmark size={24} color="#B8543B" />}
               accent="#B8543B"
             />
@@ -181,6 +181,7 @@ export default function FundingPageClient() {
               icon={<Globe size={24} color="#1B5C8E" />}
               accent="#1B5C8E"
               isInternational
+              isComingSoon
             />
           </div>
 
@@ -244,7 +245,7 @@ function StewardshipPillar({ icon, title, body }: { icon: React.ReactNode, title
   );
 }
 
-function AccountCard({ label, bank, accountName, accountNumber, icon, accent, isInternational = false }: { label: string, bank: string, accountName: string, accountNumber: string, icon: React.ReactNode, accent: string, isInternational?: boolean }) {
+function AccountCard({ label, bank, accountName, accountNumber, icon, accent, isInternational = false, isComingSoon = false }: { label: string, bank: string, accountName: string, accountNumber: string, icon: React.ReactNode, accent: string, isInternational?: boolean, isComingSoon?: boolean }) {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
@@ -268,6 +269,7 @@ function AccountCard({ label, bank, accountName, accountNumber, icon, accent, is
         flexDirection: 'column',
         gap: '40px',
         minWidth: 0,
+        minHeight: '420px',
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -280,49 +282,55 @@ function AccountCard({ label, bank, accountName, accountNumber, icon, accent, is
         </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-        <div>
-          <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(15, 42, 68, 0.4)', marginBottom: '4px' }}>Account Holder</div>
-          <div style={{ fontSize: '18px', fontWeight: 600, color: '#0F2A44' }}>{accountName}</div>
+      {isComingSoon ? (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', flex: 1, justifyContent: 'center', alignItems: 'center', minHeight: '140px', border: '1px dashed rgba(15, 42, 68, 0.12)', borderRadius: '12px', backgroundColor: '#F8FAFC' }}>
+          <div style={{ fontSize: '14px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.15em', color: 'rgba(15, 42, 68, 0.4)' }}>Coming Soon</div>
         </div>
-        
-        <div style={{ position: 'relative' }}>
-          <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(15, 42, 68, 0.4)', marginBottom: '4px' }}>Account Number</div>
-          <div style={{ 
-            fontSize: 'clamp(20px, 5vw, 36px)', 
-            fontFamily: 'var(--font-numbers)', 
-            fontWeight: 800, 
-            color: '#0F2A44', 
-            letterSpacing: '0.05em',
-            wordBreak: 'break-all',
-            lineHeight: 1.1,
-          }}>
-            {accountNumber}
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          <div>
+            <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(15, 42, 68, 0.4)', marginBottom: '4px' }}>Account Holder</div>
+            <div style={{ fontSize: '18px', fontWeight: 600, color: '#0F2A44' }}>{accountName}</div>
           </div>
-          <button 
-            onClick={copyToClipboard}
-            style={{ 
-              marginTop: '16px',
-              background: 'none', 
-              border: 'none', 
-              color: copied ? '#10B981' : '#579DD5', 
-              fontSize: '11px', 
+          
+          <div style={{ position: 'relative' }}>
+            <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(15, 42, 68, 0.4)', marginBottom: '4px' }}>Account Number</div>
+            <div style={{ 
+              fontSize: 'clamp(20px, 5vw, 36px)', 
+              fontFamily: 'var(--font-numbers)', 
               fontWeight: 800, 
-              textTransform: 'uppercase', 
-              letterSpacing: '0.1em', 
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: 0
-            }}
-          >
-            {copied ? '✓ Copied' : 'Copy Number'}
-          </button>
+              color: '#0F2A44', 
+              letterSpacing: '0.05em',
+              wordBreak: 'break-all',
+              lineHeight: 1.1,
+            }}>
+              {accountNumber}
+            </div>
+            <button 
+              onClick={copyToClipboard}
+              style={{ 
+                marginTop: '16px',
+                background: 'none', 
+                border: 'none', 
+                color: copied ? '#10B981' : '#579DD5', 
+                fontSize: '11px', 
+                fontWeight: 800, 
+                textTransform: 'uppercase', 
+                letterSpacing: '0.1em', 
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: 0
+              }}
+            >
+              {copied ? '✓ Copied' : 'Copy Number'}
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
-      {isInternational && (
+      {isInternational && !isComingSoon && (
         <div style={{ marginTop: 'auto', paddingTop: '24px', borderTop: '1px solid rgba(15, 42, 68, 0.05)', fontSize: '13px', color: 'rgba(15, 42, 68, 0.5)', lineHeight: 1.5 }}>
           Contact us for SWIFT/BIC codes and correspondent bank details for international wire transfers.
         </div>

@@ -2,10 +2,10 @@
 
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
-import ImpactBanner from '@/components/ImpactBanner';
 import ImpactStories from '@/components/ImpactStories';
 import { Globe, Zap, Network, ArrowRight, ShieldCheck, Activity, GraduationCap, HeartPulse, Plus, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -203,17 +203,21 @@ export default function ImpactPageClient() {
                 maxWidth: '460px',
                 margin: 0
               }}>
-                Quantifying the intersection of technical intervention and community resilience through rigorous data mapping and longitudinal evidence.
+                Nine years of education, health, and community infrastructure work in Okposi, Ebonyi State — documented, field-verified, and ongoing.
               </p>
               
               <div style={{ display: 'flex', gap: '48px', marginTop: '64px' }} className="hero-stats">
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <span style={{ fontFamily: 'var(--font-numbers)', fontSize: '24px', fontWeight: 800, color: '#FFFFFF' }}>100%</span>
-                  <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)' }}>Traceability</span>
+                  <span style={{ fontFamily: 'var(--font-numbers)', fontSize: '24px', fontWeight: 800, color: '#FFFFFF' }}>2,000+</span>
+                  <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)' }}>Women and families reached directly</span>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  <span style={{ fontFamily: 'var(--font-numbers)', fontSize: '24px', fontWeight: 800, color: '#FFFFFF' }}>2k+</span>
-                  <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)' }}>Direct Beneficiaries</span>
+                  <span style={{ fontFamily: 'var(--font-numbers)', fontSize: '24px', fontWeight: 800, color: '#FFFFFF' }}>8</span>
+                  <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)' }}>Secondary Schools Supported</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span style={{ fontFamily: 'var(--font-numbers)', fontSize: '24px', fontWeight: 800, color: '#FFFFFF' }}>4</span>
+                  <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.5)' }}>Infrastructure Projects</span>
                 </div>
               </div>
             </motion.div>
@@ -221,96 +225,37 @@ export default function ImpactPageClient() {
         </div>
       </section>
 
-      <ImpactBanner />
       <ImpactStories />
 
-
-      {/* ─── 7. COMMUNITY TRUST — LEGITIMACY (“WE ARE TRUSTED”) ─── */}
-      <section style={{ 
-        backgroundColor: '#0F2A44', 
-        position: 'relative', 
-        overflow: 'hidden',
-        color: '#FFFFFF'
-      }} className="section-pad">
-        {/* Background Atmosphere */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 0.15 }} 
-          viewport={{ once: true }}
-          transition={{ duration: 2, ease: "easeOut" }}
-          style={{ 
-            position: 'absolute', 
-            inset: 0, 
-            backgroundImage: 'url(/images/institutional-legitimacy-bg.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            mixBlendMode: 'overlay',
-            zIndex: 1
-          }}
-        />
-        
-        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-          
-          <div className="legitimacy-header" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', marginBottom: '100px' }}>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-            >
-              <SectionLabel text="Institutional Legitimacy" />
-              <h2 style={{ fontFamily: 'var(--font-heading-monumental), sans-serif', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 700, color: '#FFFFFF', lineHeight: 1.05, marginBottom: '0' }}>
-                Embedded in the<br />cultural fabric.
-              </h2>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "easeOut", delay: 0.2 }}
-              className="legitimacy-narrative"
-              style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '40px' }}
-            >
-              <p style={{ fontSize: '18px', lineHeight: 1.3, color: 'rgba(255,255,255,0.85)', marginBottom: '32px', margin: '0 0 32px 0' }}>
-                Unlike external agencies, Iveoma Development Network operates from within. Our interventions are rooted in the social and cultural systems of the communities we serve — ensuring that every project carries the weight of local legitimacy and long-term partnership.
-              </p>
-              <p style={{ fontSize: '14px', fontWeight: 600, color: 'var(--action-gold)', margin: 0, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-                Social capital is the currency of sustainable change.
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Cultural Integration Grid */}
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '60px' }}>
-              <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--terracotta)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Cultural integration — Okposi clan</span>
-              <div style={{ flex: 1, height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.1)' }} />
-            </div>
-
-            <div className="legitimacy-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
-              {[
-                { num: "01", title: "Okposi Okwu", sub: "Birthplace of the network's founder, Dr. Nkata Nwani Chuku, and home of the Agunabani Civic Development Centre — the network's most significant infrastructural intervention.", label: "Primary area of intervention" },
-                { num: "02", title: "Mgbom N'Achara", sub: "One of the three autonomous communities of the Okposi clan (Okposi Ezinasato). The network maintains active engagement with the community's traditional rulers and governance structures.", label: "Autonomous community" },
-                { num: "03", title: "Iri ji ovuru — New Yam Festival", sub: "The historic festival uniting all three autonomous communities of the Okposi clan. Iveoma Development Network is officially on record attending and supporting this cultural milestone alongside traditional rulers.", label: "Annual cultural participation" }
-              ].map((item, i) => (
-                <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: i * 0.2, ease: [0.22, 1, 0.36, 1] }}
-                  style={{ display: 'flex', flexDirection: 'column' }}
-                >
-                  <div style={{ fontFamily: 'var(--font-numbers)', fontSize: '32px', fontWeight: 900, color: 'var(--terracotta)', marginBottom: '16px', lineHeight: 1 }}>{item.num}</div>
-                  <h4 style={{ fontFamily: 'var(--font-heading-monumental)', fontSize: '20px', fontWeight: 700, color: '#FFFFFF', marginBottom: '16px', lineHeight: 1.2 }}>{item.title}</h4>
-                  <p style={{ fontSize: '15px', lineHeight: 1.3, color: 'rgba(255,255,255,0.6)', flex: 1, marginBottom: '32px', marginTop: 0 }}>{item.sub}</p>
-                  <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--action-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>{item.label}</div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
+      {/* ─── CENTRED ROOT TEXT BLOCK (As per Section D of CONTENT_CHANGES) ─── */}
+      <section style={{ backgroundColor: '#FFFFFF', padding: '100px 0 80px 0' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', padding: '0 24px' }}>
+          <p style={{ 
+            fontFamily: 'var(--font-body), sans-serif',
+            fontSize: '18px', 
+            lineHeight: 1.5, 
+            color: 'rgba(15, 42, 68, 0.7)', 
+            marginBottom: '24px' 
+          }}>
+            All interventions are rooted in Okposi, Ohaozara LGA — where the network's founder was born, and where its most significant infrastructure stands.
+          </p>
+          <Link 
+            href="/about" 
+            style={{ 
+              fontFamily: 'var(--font-body), sans-serif',
+              fontSize: '14px', 
+              fontWeight: 700, 
+              color: 'var(--terracotta)', 
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em'
+            }}
+          >
+            Learn about our roots →
+          </Link>
         </div>
       </section>
 

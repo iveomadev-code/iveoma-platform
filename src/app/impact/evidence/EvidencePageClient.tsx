@@ -233,7 +233,7 @@ export default function EvidencePageClient() {
             </div>
             <div className="hero-content-right" style={{ borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '20px', paddingBottom: '8px' }}>
               <p style={{ fontSize: '18px', lineHeight: 1.3, color: 'rgba(255,255,255,0.7)', maxWidth: '440px', margin: '0 0 32px 0' }}>
-                Our operations are governed by technical rigor and field validation. This page serves as a public ledger of our infrastructure deployments and community support programs.
+                A public record of every infrastructure project and community programme — from first intervention to current status.
               </p>
               <Link href="/impact" style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#FFFFFF', textDecoration: 'none', fontSize: '13px', fontWeight: 600 }}>
                 <ChevronLeft size={16} />
@@ -248,8 +248,7 @@ export default function EvidencePageClient() {
       <section style={{ padding: '80px 0 160px 0' }}>
         <div className="evidence-container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 80px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
           
-          {/* Section 1 — Headline anchor strip */}
-          <StatStrip type="primary" />
+          {/* Section 1 — Headline anchor strip (Removed as per Section B of STRUCTURE_CHANGES.md) */}
 
           {/* Section 2 — Infrastructure Growth */}
           <div style={{ backgroundColor: '#FFFFFF', padding: '60px', borderRadius: '12px', border: '1px solid rgba(15, 42, 68, 0.05)' }}>
@@ -272,17 +271,36 @@ export default function EvidencePageClient() {
                 index={1}
               />
               <TimelineItem 
-                year="2023" 
+                year="2020" 
+                title="COVID-19 Community Response" 
+                sub="Handwash basins, sanitizers, masks, and emergency cash relief deployed across Okposi and Ebonyi State during the pandemic." 
+                index={2}
+              />
+              <TimelineItem 
+                year="2021" 
+                title="Sir & Lady Nwani Chuku Hall — Holy Rosary College" 
+                sub="Assembly hall consecrated by Bishop Michael Okoro on 13 July 2021, named in honour of the founder's parents." 
+                last={true}
+                index={3}
+              />
+              <TimelineItem 
+                year="2021–2025" 
+                title="Iveoma Annual Health Walk" 
+                sub="Five consecutive annual health walks in Okposi, growing into one of the community's most attended yearly events." 
+                index={4}
+              />
+              <TimelineItem 
+                year="2024" 
                 title="Dr. Nkata Nwani Chuku Medical Centre — Veritas University, Abuja" 
                 sub="Chaired capital mobilisation and led design to expand clinical training capacity at the tertiary level." 
-                index={2}
+                index={5}
               />
               <TimelineItem 
                 year="2025" 
                 title="Sir Nwani & Lady Akanele Chuku Learning and Development Centre — Agunabani" 
                 sub="Multi-facility ICT hub providing free, mandatory training and 24-hour high-speed internet to senior secondary students." 
-                last 
-                index={3}
+                last={true}
+                index={6}
               />
             </div>
           </div>
@@ -333,9 +351,9 @@ export default function EvidencePageClient() {
               </div>
             </Card>
             <Card 
-              num="20+" 
-              title="Years of Global Experience" 
-              sub="Decades of health policy, economic strategy, and systems-strengthening expertise driving the network's institutional operations."
+              num="15+" 
+              title="15+ Years in Global Health" 
+              sub="Dr. Nkata Nwani Chuku brings over 15 years of health policy, health financing, and systems-strengthening experience — spanning FHI 360, KPMG West Africa, and the London School of Economics."
             >
               <RingProgress label="Spanning global health policy and community systems strengthening" />
             </Card>
@@ -359,8 +377,7 @@ export default function EvidencePageClient() {
             </Card>
           </div>
 
-          {/* Section 6 — Institutional Depth */}
-          <StatStrip type="secondary" />
+          {/* Section 6 — Institutional Depth (Removed as per Section E of STRUCTURE_CHANGES.md) */}
 
         </div>
       </section>

@@ -163,23 +163,10 @@ export default function ContactPageClient() {
                 <MapPin size={20} color="var(--terracotta)" />
               </div>
               <h3 style={{ fontFamily: 'var(--font-heading-monumental), serif', fontSize: '24px', fontWeight: 700, color: 'var(--sky-blue)', marginBottom: '24px' }}>Ebonyi Headquarters</h3>
-              <p style={{ fontSize: '16px', lineHeight: 1.3, color: 'rgba(15, 42, 68, 0.6)', margin: 0 }}>
-                Sir Nwani & Lady Akanele Chuku Learning Centre<br />
-                Agunabani, Okposi Okwu, Ohaozara LGA<br />
-                Ebonyi State, Nigeria
-              </p>
-            </div>
-
-            {/* Physical Presence — Abuja Office */}
-            <div>
-              <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundColor: 'rgba(184, 84, 59, 0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '32px' }}>
-                <MapPin size={20} color="var(--terracotta)" />
-              </div>
-              <h3 style={{ fontFamily: 'var(--font-heading-monumental), serif', fontSize: '24px', fontWeight: 700, color: 'var(--sky-blue)', marginBottom: '24px' }}>Abuja Office</h3>
-              <p style={{ fontSize: '16px', lineHeight: 1.3, color: 'rgba(15, 42, 68, 0.6)', margin: 0 }}>
-                The Chuku Medical Centre<br />
-                Veritas University Campus, Bwari<br />
-                FCT Abuja, Nigeria
+              <p style={{ fontSize: '15px', lineHeight: 1.5, color: 'rgba(15, 42, 68, 0.7)', margin: 0, wordBreak: 'break-word', overflowWrap: 'anywhere' }}>
+                Court Area, Okposi<br />
+                Ohaozara LGA, Ebonyi State<br />
+                Nigeria
               </p>
             </div>
 
@@ -189,9 +176,9 @@ export default function ContactPageClient() {
                 <Mail size={20} color="var(--terracotta)" />
               </div>
               <h3 style={{ fontFamily: 'var(--font-heading-monumental), serif', fontSize: '24px', fontWeight: 700, color: 'var(--sky-blue)', marginBottom: '24px' }}>Digital Inquiry</h3>
-              <p style={{ fontSize: '16px', lineHeight: 1.3, color: 'rgba(15, 42, 68, 0.6)', margin: 0 }}>
-                Inquiries: info@iveomadevelopmentnetwork.org<br />
-                Partnerships: partner@iveomadevelopmentnetwork.org
+              <p style={{ fontSize: '15px', lineHeight: 1.5, color: 'rgba(15, 42, 68, 0.7)', margin: 0, wordBreak: 'break-word', overflowWrap: 'anywhere' }}>
+                Inquiries: <a href="mailto:info@iveomadevelopmentnetwork.org" style={{ color: 'var(--terracotta)', textDecoration: 'none', fontWeight: 600 }}>info@iveomadevelopmentnetwork.org</a><br />
+                Partnerships: <a href="mailto:partner@iveomadevelopmentnetwork.org" style={{ color: 'var(--terracotta)', textDecoration: 'none', fontWeight: 600 }}>partner@iveomadevelopmentnetwork.org</a>
               </p>
             </div>
 
@@ -201,9 +188,10 @@ export default function ContactPageClient() {
                 <Phone size={20} color="var(--terracotta)" />
               </div>
               <h3 style={{ fontFamily: 'var(--font-heading-monumental), serif', fontSize: '24px', fontWeight: 700, color: 'var(--sky-blue)', marginBottom: '24px' }}>Direct Dial</h3>
-              <p style={{ fontSize: '16px', lineHeight: 1.3, color: 'rgba(15, 42, 68, 0.6)', margin: 0 }}>
-                Institutional: +234 (0) 906 206 0000<br />
-                Operating Hours: 08:00 — 17:00 WAT
+              <p style={{ fontSize: '15px', lineHeight: 1.5, color: 'rgba(15, 42, 68, 0.7)', margin: 0, wordBreak: 'break-word', overflowWrap: 'anywhere', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <a href="tel:+2348069233093" style={{ color: 'rgba(15, 42, 68, 0.7)', textDecoration: 'none' }}>+234 (0) 806 923 3093</a>
+                <a href="tel:+2348170707815" style={{ color: 'rgba(15, 42, 68, 0.7)', textDecoration: 'none' }}>+234 (0) 817 070 7815</a>
+                <a href="tel:+2348164724362" style={{ color: 'rgba(15, 42, 68, 0.7)', textDecoration: 'none' }}>+234 (0) 816 472 4362</a>
               </p>
             </div>
 
@@ -291,7 +279,7 @@ export default function ContactPageClient() {
       <style jsx global>{`
         .contact-grid-responsive {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(4, 1fr);
           gap: 64px;
         }
         .inquiry-grid {

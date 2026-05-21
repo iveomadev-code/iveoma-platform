@@ -24,10 +24,7 @@ const alliancePillars = [
   }
 ];
 
-// Placeholder logo data - using high-end grey tones for institutional feel
-const partnerLogos = [
-  'HSCL', 'USAID', 'GLOBAL FUND', 'WHO', 'BMGF', 'UNICEF', 'WORLD BANK', 'DFID'
-];
+
 
 export default function StrategicAlliances() {
   const ref = useRef(null);
@@ -91,16 +88,7 @@ export default function StrategicAlliances() {
             </motion.div>
           </div>
 
-          {/* Infinite Logo Marquee */}
-          <div className="marquee-container" style={{ margin: '80px 0' }}>
-            <div className="marquee-content">
-              {[...partnerLogos, ...partnerLogos].map((logo, i) => (
-                <div key={i} className="logo-item">
-                  {logo}
-                </div>
-              ))}
-            </div>
-          </div>
+
 
           {/* Partnership Pillars Grid */}
           <div className="pillars-grid">
