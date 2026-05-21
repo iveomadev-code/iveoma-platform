@@ -26,6 +26,13 @@ export const metadata = {
   authors: [{ name: "Iveoma Development Network" }],
   creator: "Iveoma Development Network",
   publisher: "Iveoma Development Network",
+  icons: {
+    icon: [
+      { url: "/images/Favicon.svg", type: "image/svg+xml" }
+    ],
+    shortcut: "/images/Favicon.svg",
+    apple: "/images/Favicon.svg",
+  },
   formatDetection: {
     email: false,
     address: false,
